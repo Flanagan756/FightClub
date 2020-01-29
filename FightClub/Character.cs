@@ -47,7 +47,7 @@ namespace FightClub
         //Methods
         public override string ToString()
         {
-            return$"{Name:-15}{AC:-15}{HP:-15}{Dex:-15}";
+            return$"{Name} {AC} {HP} {Dex}";
         }
     }
     public class Hero : Character
@@ -66,7 +66,7 @@ namespace FightClub
         }
         public override string ToString()
         {
-            return$"{Name:-15}{AC:-15}{HP:-15}{Dex:-15}{PlayerClass:-15}";
+            return$"{Name} {AC} {HP} {Dex} {PlayerClass}";
         }
     }
 
