@@ -1,0 +1,23 @@
+﻿<Window x:Class="FightClub.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FightClub"
+        mc:Ignorable="d"
+        Title="DnD Fight Club" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="190*"/>
+            <RowDefinition Height="229*"/>
+        </Grid.RowDefinitions>
+        <Label Content="DnD Fight Club" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="48" Width="171" FontSize="22"/>
+        <ListBox x:Name="lbxCombat" HorizontalAlignment="Left" Height="212" Margin="10,90,0,0" VerticalAlignment="Top" Width="346" Grid.RowSpan="2"/>
+        <Label Content="Combat" HorizontalAlignment="Left" Height="24" Margin="10,63,0,0" VerticalAlignment="Top" Width="163"/>
+        <TextBlock x:Name="txtDescription" HorizontalAlignment="Left" Margin="392,90,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="100" Width="144"/>
+
+    </Grid>
+</Window>
