@@ -31,18 +31,31 @@ namespace FightClub
         public int HP { get; set; } /*Hit Points*/
         public int Dex { get; set; } /*Dexterity*/
 
+        public string Description { get; set; }
+
         //Constructor
         public Character()
         {
 
         }
-          
+        //Basic Character Build 
         public Character(string name, int ac, int hp, int dex)
         {
             Name = name;
             AC = ac;
             HP = hp;
             Dex = dex;
+            Description = "No Description";
+        }
+        //Character Build with Description
+        public Character(string name, int ac, int hp, int dex, string description)
+        {
+            Name = name;
+            AC = ac;
+            HP = hp;
+            Dex = dex;
+            Description = description;
+
         }
         //Methods
         public override string ToString()
@@ -63,6 +76,18 @@ namespace FightClub
             HP = hp;
             PlayerClass = playerClass;
             Dex = dex;
+            Description = "No Description";
+
+        }
+        public Hero(string name, int ac, int hp, Classes playerClass, int dex, string description)
+        {
+            Name = name;
+            AC = ac;
+            HP = hp;
+            PlayerClass = playerClass;
+            Dex = dex;
+            Description = description;
+
         }
         public override string ToString()
         {

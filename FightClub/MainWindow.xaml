@@ -15,9 +15,9 @@
             <RowDefinition Height="229*"/>
         </Grid.RowDefinitions>
         <Label Content="DnD Fight Club" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="48" Width="171" FontSize="22"/>
-        <ListBox x:Name="lbxCombat" HorizontalAlignment="Left" Height="212" Margin="10,90,0,0" VerticalAlignment="Top" Width="346" Grid.RowSpan="2"/>
+        <ListBox x:Name="lbxCombat" HorizontalAlignment="Left" Height="212" Margin="10,90,0,0" VerticalAlignment="Top" Width="346" SelectionChanged="ListBox_SelectionChanged"  Grid.RowSpan="2"/>
         <Label Content="Combat" HorizontalAlignment="Left" Height="24" Margin="10,63,0,0" VerticalAlignment="Top" Width="163"/>
-        <TextBlock x:Name="txtDescription" HorizontalAlignment="Left" Margin="392,90,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="100" Width="144"/>
+        <TextBlock x:Name="txtDescription" HorizontalAlignment="Left" Margin="361,90,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="100" Width="217"/>
 
     </Grid>
 </Window>

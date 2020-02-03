@@ -21,19 +21,21 @@ namespace FightClub
     public partial class MainWindow : Window
     {
         List<Character> combat = new List<Character>();
+        List<Character> selectedCharacter = new List<Character>();
         public MainWindow()
         {
             InitializeComponent();
 
             //Create Enemies
-            Character enemy1 = new Character("Red Dragon", 19, 256, 16);
-            Character enemy2 = new Character("Skeleton1", 13, 13, 18);
-            Character enemy3 = new Character("Skeleton2", 13, 13, 9);
+            Character enemy1 = new Character("Red Dragon", 19, 256, 16, 
+           "Red dragons, were covetous, evil creatures, interested only in their own well-being, vanity and the extension of their treasure hoards. They were supremely confident of their own abilities and were prone to making snap decisions without any forethought");
+            Character enemy2 = new Character("Skeleton1", 13, 13, 18, "Skeletons were undead animated corpses similar to zombies, but completely devoid of flesh and did not feed on the living. They could be made from virtually any solid creature, and as such their size and power varied widely. In addition to the basic humanoid skeleton, there were also skeletons created from wolves, trolls, ettins and even giants.");
+            Character enemy3 = new Character("Skeleton2", 13, 13, 9, "Skeletons were undead animated corpses similar to zombies, but completely devoid of flesh and did not feed on the living. They could be made from virtually any solid creature, and as such their size and power varied widely. In addition to the basic humanoid skeleton, there were also skeletons created from wolves, trolls, ettins and even giants.");
 
             //Create Heros
-            Hero hero1 = new Hero("Yosef Bolof",14,22,Classes.Barbarian,2);
-            Hero hero2 = new Hero("MitaK", 17, 25, Classes.Paladin, 11);
-            Hero hero3 = new Hero("Sticks the Undead", 9, 11, Classes.Bard, 20);
+            Hero hero1 = new Hero("Yosef Bolof",14,22,Classes.Barbarian,2, "Yosef lived in seclusion – either in a sheltered community such as a monastery, or entirely alone – for a formative part of his life.In Yoself's time apart from the clamor of society, you found quiet, solitude, and perhaps some of the answers he was looking for.") ;
+            Hero hero2 = new Hero("MitaK", 17, 25, Classes.Paladin, 11, "MitaK is a famed conquere of the land and shows no mercy to his enemies");
+            Hero hero3 = new Hero("Sticks the Undead", 9, 11, Classes.Bard, 20, "A Undead Musician cursed to travel the land to finished some unfinished business so his soul can move on");
             Hero hero4 = new Hero("Leon Swampson", 15, 18, Classes.Druid, 17);
 
             //Add all Characters to the combat List
@@ -49,9 +51,26 @@ namespace FightClub
             //Display the combat list in the combat listbox
             lbxCombat.ItemsSource = combat;
 
-
-
+         
+           
 
         }
+        private void RefreshScreen()
+        {
+            //Rereshes the screen
+            lbxCombat.ItemsSource = null;
+            lbxCombat.ItemsSource = combat;
+
+          
+        }
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Character selectedCharacter = lbxCombat.SelectedItem as Character;
+
+            //Display activity in text box
+
+            txtDescription.Text = selectedCharacter.Description;
+        }
+
     }
 }
