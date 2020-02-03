@@ -18,6 +18,8 @@
         <ListBox x:Name="lbxCombat" HorizontalAlignment="Left" Height="212" Margin="10,90,0,0" VerticalAlignment="Top" Width="346" SelectionChanged="ListBox_SelectionChanged"  Grid.RowSpan="2"/>
         <Label Content="Combat" HorizontalAlignment="Left" Height="24" Margin="10,63,0,0" VerticalAlignment="Top" Width="163"/>
         <TextBlock x:Name="txtDescription" HorizontalAlignment="Left" Margin="361,90,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="100" Width="217"/>
+        <TextBox x:Name="txtbxDamage" HorizontalAlignment="Left" Height="23" Margin="10,117,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="59" RenderTransformOrigin="0.179,-0.385"/>
+        <Button x:Name="btnDamage" Content="Damage" HorizontalAlignment="Left" Margin="10,140,0,0" Grid.Row="1" VerticalAlignment="Top" Width="59" Height="20" Click="btnDamage_Click"/>
 
     </Grid>
 </Window>

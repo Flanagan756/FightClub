@@ -20,8 +20,12 @@ namespace FightClub
     /// </summary>
     public partial class MainWindow : Window
     {
+        //Lists
         List<Character> combat = new List<Character>();
         List<Character> selectedCharacter = new List<Character>();
+
+        //Varibles
+        int damage;
         public MainWindow()
         {
             InitializeComponent();
@@ -50,10 +54,6 @@ namespace FightClub
 
             //Display the combat list in the combat listbox
             lbxCombat.ItemsSource = combat;
-
-         
-           
-
         }
         private void RefreshScreen()
         {
@@ -61,16 +61,29 @@ namespace FightClub
             lbxCombat.ItemsSource = null;
             lbxCombat.ItemsSource = combat;
 
-          
         }
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Character selectedCharacter = lbxCombat.SelectedItem as Character;
 
             //Display activity in text box
-
             txtDescription.Text = selectedCharacter.Description;
+            
         }
 
+        //private void btnDamage_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Character selectedCharacter = lbxCombat.SelectedItem as Character;
+        //    //Null Check
+        //    if (selectedCharacter != null)
+        //    {
+        //        damage = int.Parse(txtbxDamage.Text);
+
+        //        selectedCharacter.HP = (selectedCharacter.HP - damage);
+        //        RefreshScreen();
+          
+        //    }
+           
+        //}
     }
 }
