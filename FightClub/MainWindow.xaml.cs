@@ -65,14 +65,21 @@ namespace FightClub
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Character selectedCharacter = lbxCombat.SelectedItem as Character;
-
+            Hero selectedHero = lbxCombat.SelectedItem as Hero;
 
             if (selectedCharacter != null)
             {
                 //Display activity in text box
-                txtDescription.Text = selectedCharacter.Description;
+                txtClass.Text = "Enemy";
+                txtDescription.Text = selectedCharacter.Description;          
             }
-            
+            if (selectedHero != null)
+            {
+                //Display activity in text box
+                txtClass.Text = selectedHero.PlayerClass.ToString();
+                txtDescription.Text = selectedHero.Description;
+            }
+
         }
 
         private void btnDamage_Click(object sender, RoutedEventArgs e)
@@ -84,10 +91,17 @@ namespace FightClub
                 damage = int.Parse(txtbxDamage.Text);
 
                 selectedCharacter.HP = (selectedCharacter.HP - damage);
+
+                if (selectedCharacter.HP <= 0)
+                {
+                    combat.Remove(selectedCharacter);
+
+                }
                 RefreshScreen();
 
             }
 
         }
+
     }
 }

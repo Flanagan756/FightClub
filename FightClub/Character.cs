@@ -60,7 +60,7 @@ namespace FightClub
         //Methods
         public override string ToString()
         {
-            return$"{Name} {AC} {HP} {Dex}";
+            return string.Format("{0} {1,5} {2,5} {3,5}\n", Name, AC, HP, Dex);
         }
     }
     public class Hero : Character
@@ -91,7 +91,7 @@ namespace FightClub
         }
         public override string ToString()
         {
-            return$"{Name} {AC} {HP} {Dex} {PlayerClass}";
+            return string.Format("{0} {1,5} {2,5} {3,5}\n", Name, AC, HP, Dex);
         }
     }
 
