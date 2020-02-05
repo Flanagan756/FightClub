@@ -22,10 +22,13 @@ namespace FightClub
     {
         //Lists
         List<Character> combat = new List<Character>();
+        List<string> dead = new List<string>();
         List<Character> selectedCharacter = new List<Character>();
 
         //Varibles
         int damage;
+        int heal;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -52,8 +55,10 @@ namespace FightClub
             combat.Add(hero3);
             combat.Add(hero4);
 
-            //Display the combat list in the combat listbox
+            //Display the listboxes
             lbxCombat.ItemsSource = combat;
+            lbxDeath.ItemsSource = dead;
+            
         }
         private void RefreshScreen()
         {
@@ -95,8 +100,23 @@ namespace FightClub
                 if (selectedCharacter.HP <= 0)
                 {
                     combat.Remove(selectedCharacter);
+                    dead.Add(selectedCharacter.Name);
+                    
 
                 }
+                RefreshScreen();
+            }
+        }
+        private void btnHeal_Click(object sender, RoutedEventArgs e)
+        {
+            Character selectedCharacter = lbxCombat.SelectedItem as Character;
+            //Null Check
+            if (selectedCharacter != null)
+            {
+                heal = int.Parse(txtbxHeal.Text);
+
+                selectedCharacter.HP = (selectedCharacter.HP + heal);
+
                 RefreshScreen();
 
             }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FightClub"
         mc:Ignorable="d"
         Title="DnD Fight Club" Height="450" Width="800">
-    <Grid>
+    <Grid x:Name="lbxDead">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
@@ -19,9 +19,12 @@
         <Label Content="Combat" HorizontalAlignment="Left" Height="24" Margin="10,63,0,0" VerticalAlignment="Top" Width="163"/>
         <TextBlock x:Name="txtDescription" HorizontalAlignment="Left" Margin="565,118,0,0" TextWrapping="Wrap" Text="Descritpion" VerticalAlignment="Top" Height="145" Width="178" Grid.RowSpan="2"/>
         <TextBox x:Name="txtbxDamage" HorizontalAlignment="Left" Height="23" Margin="10,171,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="59" RenderTransformOrigin="0.179,-0.385"/>
+        <TextBox x:Name="txtbxHeal" HorizontalAlignment="Left" Height="23" Margin="74,171,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="59" RenderTransformOrigin="0.179,-0.385"/>
         <Button x:Name="btnDamage" Content="Damage" HorizontalAlignment="Left" Margin="10,199,0,0" Grid.Row="1" VerticalAlignment="Top" Width="59" Height="20" Click="btnDamage_Click"/>
-        <Button x:Name="btnHeal" Content="Heal" HorizontalAlignment="Left" Margin="74,199,0,0" Grid.Row="1" VerticalAlignment="Top" Width="59" Height="20" Click="btnDamage_Click"/>
+        <Button x:Name="btnHeal" Content="Heal" HorizontalAlignment="Left" Margin="74,199,0,0" Grid.Row="1" VerticalAlignment="Top" Width="59" Height="20" Click="btnHeal_Click"/>
         <TextBlock x:Name="txtClass" HorizontalAlignment="Left" Margin="565,90,0,0" TextWrapping="Wrap" Text="Class" VerticalAlignment="Top" Height="23" Width="95"/>
+        <Label Content="Dead" HorizontalAlignment="Left" Margin="565,73,0,0" Grid.Row="1" VerticalAlignment="Top" Width="82"/>
+        <ListBox x:Name="lbxDeath" HorizontalAlignment="Left" Height="100" Margin="565,104,0,0" Grid.Row="1" VerticalAlignment="Top" Width="178"/>
 
     </Grid>
 </Window>
