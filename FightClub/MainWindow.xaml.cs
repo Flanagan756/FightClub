@@ -66,24 +66,28 @@ namespace FightClub
         {
             Character selectedCharacter = lbxCombat.SelectedItem as Character;
 
-            //Display activity in text box
-            txtDescription.Text = selectedCharacter.Description;
+
+            if (selectedCharacter != null)
+            {
+                //Display activity in text box
+                txtDescription.Text = selectedCharacter.Description;
+            }
             
         }
 
-        //private void btnDamage_Click(object sender, RoutedEventArgs e)
-        //{
-        //    Character selectedCharacter = lbxCombat.SelectedItem as Character;
-        //    //Null Check
-        //    if (selectedCharacter != null)
-        //    {
-        //        damage = int.Parse(txtbxDamage.Text);
+        private void btnDamage_Click(object sender, RoutedEventArgs e)
+        {
+            Character selectedCharacter = lbxCombat.SelectedItem as Character;
+            //Null Check
+            if (selectedCharacter != null)
+            {
+                damage = int.Parse(txtbxDamage.Text);
 
-        //        selectedCharacter.HP = (selectedCharacter.HP - damage);
-        //        RefreshScreen();
-          
-        //    }
-           
-        //}
+                selectedCharacter.HP = (selectedCharacter.HP - damage);
+                RefreshScreen();
+
+            }
+
+        }
     }
 }
