@@ -66,6 +66,9 @@ namespace FightClub
             lbxCombat.ItemsSource = null;
             lbxCombat.ItemsSource = combat;
 
+            lbxDeath.ItemsSource = null;
+            lbxDeath.ItemsSource = dead;
+
         }
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -102,7 +105,6 @@ namespace FightClub
                     combat.Remove(selectedCharacter);
                     dead.Add(selectedCharacter.Name);
                     
-
                 }
                 RefreshScreen();
             }
