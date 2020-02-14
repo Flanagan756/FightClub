@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Threading;
 
 namespace FightClub
 {
@@ -137,13 +138,38 @@ namespace FightClub
             }
 
         }
-
-        private void btnD20_Click(object sender, RoutedEventArgs e)
+        private void btnRoll_Click(object sender, RoutedEventArgs e)
         {
-
-
-
-            txtD20.Text = RandomNumber(1, 20).ToString();
+            if (D4.IsChecked == true)
+            {
+                txtD4.Text = RandomNumber(1, 5).ToString();       
+            }
+            if (D6.IsChecked == true)
+            {
+                txtD6.Text = RandomNumber(1, 7).ToString();
+            }
+            if (D8.IsChecked == true)
+            {
+                txtD8.Text = RandomNumber(1, 9).ToString();
+            }
+            if (D10.IsChecked == true)
+            {
+                txtD10.Text = RandomNumber(1, 11).ToString();
+            }
+            if (D12.IsChecked == true)
+            {
+                txtD12.Text = RandomNumber(1, 13).ToString();
+            }
+            if (D20.IsChecked == true)
+            {
+                txtD20.Text = RandomNumber(1, 21).ToString();
+            }
+            if (D100.IsChecked == true)
+            {
+                txtD100.Text = RandomNumber(1, 101).ToString();
+            }
         }
+
+      
     }
 }

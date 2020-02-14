@@ -51,8 +51,23 @@
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="90*"/>
                 </Grid.RowDefinitions>
-                <Button x:Name="btnD20" Content="D20" HorizontalAlignment="Left" Margin="10,316,0,0" Grid.Row="1" VerticalAlignment="Top" Width="59" Height="20" Click="btnD20_Click"/>
-                <TextBlock x:Name="txtD20" HorizontalAlignment="Left" Margin="255,309,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59"/>
+                <Button x:Name="btnRoll" Content="Roll" HorizontalAlignment="Left" Margin="10,322,0,0" VerticalAlignment="Top" Width="59" Height="20" Click="btnRoll_Click" Grid.Row="1"/>
+
+                <RadioButton  Name="D4" Content="D4" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top"/>
+                <RadioButton Name="D6" Content="D6" HorizontalAlignment="Left" Margin="10,17,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+                <RadioButton Name="D8" Content="D8" HorizontalAlignment="Left" Margin="10,64,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+                <RadioButton Name="D10" Content="D10" HorizontalAlignment="Left" Margin="10,109,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+                <RadioButton Name="D12" Content="D12" HorizontalAlignment="Left" Margin="10,154,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+                <RadioButton Name="D20" Content="D20" HorizontalAlignment="Left" Margin="10,202,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+                <RadioButton Name="D100" Content="D100" HorizontalAlignment="Left" Margin="10,254,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+
+                <TextBlock x:Name="txtD4" HorizontalAlignment="Left" Margin="114,13,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59"/>
+                <TextBlock x:Name="txtD6" HorizontalAlignment="Left" Margin="114,16,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59" Grid.Row="1"/>
+                <TextBlock x:Name="txtD8" HorizontalAlignment="Left" Margin="114,66,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59" Grid.Row="1"/>
+                <TextBlock x:Name="txtD10" HorizontalAlignment="Left" Margin="114,108,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59" Grid.Row="1"/>
+                <TextBlock x:Name="txtD12" HorizontalAlignment="Left" Margin="114,153,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59" Grid.Row="1"/>
+                <TextBlock x:Name="txtD20" HorizontalAlignment="Left" Margin="114,201,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59" Grid.Row="1"/>
+                <TextBlock x:Name="txtD100" HorizontalAlignment="Left" Margin="114,253,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59" Grid.Row="1"/>
             </Grid>
         </TabItem>
     </TabControl>
