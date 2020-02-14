@@ -9,40 +9,51 @@
 
     <Window.Resources>
         <DataTemplate x:Key="testTemplate">
-
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="{Binding Path= Name}" Width="200"/>
                 <TextBlock Text="{Binding Path= AC}" Width="51"/>
                 <TextBlock Text="{Binding Path= HP}" Width="51"/>
                 <TextBlock Text="{Binding Path= Dex}" Width="51"/>
             </StackPanel>
-
         </DataTemplate>
     </Window.Resources>
+    <TabControl TabStripPlacement="Top">
+        <TabItem Name="Ex1" Header="Combat" Width="60">
+            <Grid>
+                <Grid.ColumnDefinitions>
 
-    <Grid x:Name="lbxDead">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="190*"/>
-            <RowDefinition Height="229*"/>
-        </Grid.RowDefinitions>
-        <Label Content="DnD Fight Club" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="48" Width="171" FontSize="22"/>
+                    <ColumnDefinition Width="755*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="90*"/>
+                </Grid.RowDefinitions>
+                <Label Content="Dead" HorizontalAlignment="Left" Margin="598,211,0,0" Grid.Row="1" VerticalAlignment="Top" Width="82"/>
+                <Label Content="Combat" HorizontalAlignment="Left" Height="24" Margin="10,63,0,0" VerticalAlignment="Top" Width="163"/>
+                <ListBox  ItemTemplate="{StaticResource testTemplate}" x:Name="lbxCombat" HorizontalAlignment="Left" Height="266" Margin="10,11,0,0" VerticalAlignment="Top" Width="346" SelectionChanged="ListBox_SelectionChanged" Grid.Row="1"/>
+                <ListBox x:Name="lbxDeath" HorizontalAlignment="Left" Height="100" Margin="598,242,0,0" Grid.Row="1" VerticalAlignment="Top" Width="178"/>
+                <TextBox x:Name="txtbxDamage" HorizontalAlignment="Left" Height="23" Margin="10,294,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="59" RenderTransformOrigin="0.179,-0.385"/>
+                <TextBox x:Name="txtbxHeal" HorizontalAlignment="Left" Height="23" Margin="74,294,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="59" RenderTransformOrigin="0.179,-0.385"/>
+                <TextBlock x:Name="txtDescription" HorizontalAlignment="Left" Margin="565,10,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Height="145" Width="178" Grid.Row="1"/>
+                <TextBlock x:Name="txtClass" HorizontalAlignment="Left" Margin="565,10,0,0" TextWrapping="Wrap" Text="Class" VerticalAlignment="Top" Height="23" Width="95"/>
+                <Button x:Name="btnDamage" Content="Damage" HorizontalAlignment="Left" Margin="10,322,0,0" Grid.Row="1" VerticalAlignment="Top" Width="59" Height="20" Click="btnDamage_Click"/>
+                <Button x:Name="btnHeal" Content="Heal" HorizontalAlignment="Left" Margin="74,322,0,0" Grid.Row="1" VerticalAlignment="Top" Width="59" Height="20" Click="btnHeal_Click"/>
 
-        <ListBox  ItemTemplate="{StaticResource testTemplate}" x:Name="lbxCombat" HorizontalAlignment="Left" Height="266" Margin="10,90,0,0" VerticalAlignment="Top" Width="346" SelectionChanged="ListBox_SelectionChanged"  Grid.RowSpan="2"/>
+            </Grid>
+        </TabItem>
+        <TabItem Name="Ex2" Header="Dice Roller" Width="70">
+            <Grid>
+                <Grid.ColumnDefinitions>
 
-        <Label Content="Combat" HorizontalAlignment="Left" Height="24" Margin="10,63,0,0" VerticalAlignment="Top" Width="163"/>
-        <TextBlock x:Name="txtDescription" HorizontalAlignment="Left" Margin="565,118,0,0" TextWrapping="Wrap" Text="Descritpion" VerticalAlignment="Top" Height="145" Width="178" Grid.RowSpan="2"/>
-        <TextBox x:Name="txtbxDamage" HorizontalAlignment="Left" Height="23" Margin="10,171,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="59" RenderTransformOrigin="0.179,-0.385"/>
-        <TextBox x:Name="txtbxHeal" HorizontalAlignment="Left" Height="23" Margin="74,171,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="59" RenderTransformOrigin="0.179,-0.385"/>
-        <Button x:Name="btnDamage" Content="Damage" HorizontalAlignment="Left" Margin="10,199,0,0" Grid.Row="1" VerticalAlignment="Top" Width="59" Height="20" Click="btnDamage_Click"/>
-        <Button x:Name="btnHeal" Content="Heal" HorizontalAlignment="Left" Margin="74,199,0,0" Grid.Row="1" VerticalAlignment="Top" Width="59" Height="20" Click="btnHeal_Click"/>
-        <TextBlock x:Name="txtClass" HorizontalAlignment="Left" Margin="565,90,0,0" TextWrapping="Wrap" Text="Class" VerticalAlignment="Top" Height="23" Width="95"/>
-        <Label Content="Dead" HorizontalAlignment="Left" Margin="565,73,0,0" Grid.Row="1" VerticalAlignment="Top" Width="82"/>
-        <ListBox x:Name="lbxDeath" HorizontalAlignment="Left" Height="100" Margin="565,104,0,0" Grid.Row="1" VerticalAlignment="Top" Width="178"/>
-        <Button x:Name="btnD20" Content="D20" HorizontalAlignment="Left" Margin="138,199,0,0" Grid.Row="1" VerticalAlignment="Top" Width="59" Height="20" Click="btnD20_Click"/>
-        <TextBlock x:Name="txtD20" HorizontalAlignment="Left" Margin="138,172,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59"/>
-
-    </Grid>
+                    <ColumnDefinition Width="755*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="90*"/>
+                </Grid.RowDefinitions>
+                <Button x:Name="btnD20" Content="D20" HorizontalAlignment="Left" Margin="10,316,0,0" Grid.Row="1" VerticalAlignment="Top" Width="59" Height="20" Click="btnD20_Click"/>
+                <TextBlock x:Name="txtD20" HorizontalAlignment="Left" Margin="255,309,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59"/>
+            </Grid>
+        </TabItem>
+    </TabControl>
 </Window>

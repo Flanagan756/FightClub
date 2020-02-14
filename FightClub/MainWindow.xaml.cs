@@ -15,17 +15,19 @@ using System.Windows.Shapes;
 
 namespace FightClub
 {
+    /***Author: Harry Flanagan***/
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        //Lists
+        /*Lists*/
         List<Character> combat = new List<Character>();
         List<string> dead = new List<string>();
         List<Character> selectedCharacter = new List<Character>();
 
-        //Varibles
+        /*Varibles*/
         int damage;
         int heal;
 
@@ -33,6 +35,7 @@ namespace FightClub
         {
             InitializeComponent();
 
+            #region Create Characters
             //Create Enemies
             Character enemy1 = new Character("Red Dragon", 19, 256, 16,
            "Red dragons, were covetous, evil creatures, interested only in their own well-being, vanity and the extension of their treasure hoards. They were supremely confident of their own abilities and were prone to making snap decisions without any forethought");
@@ -44,7 +47,9 @@ namespace FightClub
             Hero hero2 = new Hero("MitaK", 17, 25, Classes.Paladin, 11, "MitaK is a famed conquere of the land and shows no mercy to his enemies");
             Hero hero3 = new Hero("Sticks the Undead", 9, 11, Classes.Bard, 20, "A Undead Musician cursed to travel the land to finished some unfinished business so his soul can move on");
             Hero hero4 = new Hero("Leon Swampson", 15, 18, Classes.Druid, 17);
+            #endregion
 
+            #region Add Characters to List
             //Add all Characters to the combat List
             combat.Add(enemy1);
             combat.Add(enemy2);
@@ -58,9 +63,10 @@ namespace FightClub
             //Display the listboxes
             lbxCombat.ItemsSource = combat;
             lbxDeath.ItemsSource = dead;
-
+            #endregion
         }
-        //Mathods
+
+        #region Methods
         public int RandomNumber(int min, int max)
         {
             Random random = new Random();
@@ -76,6 +82,7 @@ namespace FightClub
             lbxDeath.ItemsSource = dead;
 
         }
+        #endregion
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Character selectedCharacter = lbxCombat.SelectedItem as Character;
