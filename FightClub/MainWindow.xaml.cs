@@ -176,6 +176,20 @@ namespace FightClub
             if (D20.IsChecked == true)
             {
                 txtD20.Text = RandomNumber(1, 21).ToString();
+                if (txtD20.Text == "20")
+                {
+                    txtD20.Foreground = Brushes.Gold;
+                    MessageBox.Show("20", "Yes! Natural 20!", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else if (txtD20.Text == "1")
+                {
+                    txtD20.Foreground = Brushes.Red;
+                    MessageBox.Show("1", "Oh No! Natural 1!", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else
+                {
+                    txtD20.Foreground = Brushes.Black;
+                }
             }
             if (D100.IsChecked == true)
             {
