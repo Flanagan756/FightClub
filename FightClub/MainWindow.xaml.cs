@@ -51,28 +51,31 @@ namespace FightClub
             #endregion
 
             #region Add Characters to List
-            //Add all Characters to the combat List
+            //Add all the Enemies(Chartacter Class) to the combat list
             combat.Add(enemy1);
             combat.Add(enemy2);
             combat.Add(enemy3);
 
+            //Add all the heros (Character Subclass) to the combat list
             combat.Add(hero1);
             combat.Add(hero2);
             combat.Add(hero3);
             combat.Add(hero4);
 
-            //Display the listboxes
+            //Display all of the characters in the listboxes
             lbxCombat.ItemsSource = combat;
             lbxDeath.ItemsSource = dead;
             #endregion
         }
 
         #region Methods
+        //Random Number Generator for dice
         public int RandomNumber(int min, int max)
         {
             Random random = new Random();
             return random.Next(min, max);
         }
+        //Referesh Screen for upadting data
         private void RefreshScreen()
         {
             //Rereshes the screen
@@ -84,26 +87,32 @@ namespace FightClub
 
         }
         #endregion
+
+        #region Combat_Tab
+
+        /*Display Classes in listboxes*/
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Character selectedCharacter = lbxCombat.SelectedItem as Character;
             Hero selectedHero = lbxCombat.SelectedItem as Hero;
 
-            if (selectedCharacter != null)
+            if (selectedCharacter != null) //Checks to see if the selected charcter isn't equal to null
             {
-                //Display activity in text box
+                //Display Class as enemy and the Discription in the discription text box
                 txtClass.Text = "Enemy";
                 txtDescription.Text = selectedCharacter.Description;
             }
-            if (selectedHero != null)
+            if (selectedHero != null) //Checks to see if the selected character isn't null and is of the subclass Hero
             {
-                //Display activity in text box
+                //Display the selected Hero's class property and the discription in the discription text box
                 txtClass.Text = selectedHero.PlayerClass.ToString();
                 txtDescription.Text = selectedHero.Description;
             }
 
         }
+        /*Edit HP of Characters*/
 
+        // - HP
         private void btnDamage_Click(object sender, RoutedEventArgs e)
         {
             Character selectedCharacter = lbxCombat.SelectedItem as Character;
@@ -112,8 +121,9 @@ namespace FightClub
             {
                 damage = int.Parse(txtbxDamage.Text);
 
-                selectedCharacter.HP = (selectedCharacter.HP - damage);
+                selectedCharacter.HP = (selectedCharacter.HP - damage); //HP - damagae
 
+                //Checks if character dies and moves them to dead listbox
                 if (selectedCharacter.HP <= 0)
                 {
                     combat.Remove(selectedCharacter);
@@ -123,6 +133,7 @@ namespace FightClub
                 RefreshScreen();
             }
         }
+        // + HP
         private void btnHeal_Click(object sender, RoutedEventArgs e)
         {
             Character selectedCharacter = lbxCombat.SelectedItem as Character;
@@ -131,13 +142,15 @@ namespace FightClub
             {
                 heal = int.Parse(txtbxHeal.Text);
 
-                selectedCharacter.HP = (selectedCharacter.HP + heal);
+                selectedCharacter.HP = (selectedCharacter.HP + heal); //HP + heal
 
                 RefreshScreen();
 
             }
 
         }
+        #endregion
+        #region Dice_Roller
         private void btnRoll_Click(object sender, RoutedEventArgs e)
         {
             if (D4.IsChecked == true)
@@ -169,7 +182,8 @@ namespace FightClub
                 txtD100.Text = RandomNumber(1, 101).ToString();
             }
         }
+        #endregion
 
-      
+
     }
 }

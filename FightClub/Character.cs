@@ -23,9 +23,10 @@ namespace FightClub
         Wizard
 
     }
+    #region Character
     public class Character
     {
-        //Properties
+        /*Properties*/
         public string Name { get; set; }
         public int AC { get; set; } /*Armor Class*/
         public int HP { get; set; } /*Hit Points*/
@@ -33,7 +34,9 @@ namespace FightClub
 
         public string Description { get; set; }
 
-        //Constructor
+        /*Constructors*/
+
+        //Default Constructor
         public Character()
         {
 
@@ -57,18 +60,20 @@ namespace FightClub
             Description = description;
 
         }
-        //Methods
+        /*Methods*/
         public override string ToString()
         {
-            return string.Format("{0} {1,5} {2,5} {3,5}\n", Name, AC, HP, Dex);
+            return string.Format("{0} {1} {2} {3}", Name, AC, HP, Dex);
         }
     }
+    #endregion
+    #region Hero
     public class Hero : Character
     {
-        //Properties
+        /*Properties*/
         public Classes PlayerClass { get; set; }
 
-        //Constructor
+        /*Constructors*/
         public Hero(string name, int ac, int hp, Classes playerClass, int dex)
         {
             Name = name;
@@ -91,8 +96,9 @@ namespace FightClub
         }
         public override string ToString()
         {
-            return string.Format("{0} {1,5} {2,5} {3,5}\n", Name, AC, HP, Dex);
+            return string.Format("{0} {1} {2} {3}", Name, AC, HP, Dex);
         }
     }
+    #endregion
 
 }
