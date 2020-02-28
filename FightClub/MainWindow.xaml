@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FightClub"
         mc:Ignorable="d"
-        Title="DnD Fight Club" Height="600" Width="1000">
+        Title="DnD Fight Club" Height="600" Width="1000" Background="White">
 
     <Window.Resources>
         <DataTemplate x:Key="testTemplate">
@@ -17,10 +17,14 @@
             </StackPanel>
         </DataTemplate>
     </Window.Resources>
-    <TabControl TabStripPlacement="Top">
+    <TabControl TabStripPlacement="Top" Background="#FF5C5D5D">
         <TabItem Name="Ex1" Header="Combat" Width="60">
             <Grid>
                 <Grid.ColumnDefinitions>
+
+
+                    <ColumnDefinition Width="117*"/>
+                    <ColumnDefinition Width="376*"/>
 
 
                 </Grid.ColumnDefinitions>
@@ -28,22 +32,25 @@
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="90*"/>
                 </Grid.RowDefinitions>
-                <Label Content="Dead" HorizontalAlignment="Left" Margin="763,21,0,0" VerticalAlignment="Top" Width="82" Grid.Row="1"/>
+                <Label Content="Dead" HorizontalAlignment="Left" Margin="528.96,21,0,0" VerticalAlignment="Top" Width="82" Grid.Row="1" Grid.Column="1"/>
                 <Label Content="Combat" HorizontalAlignment="Left" Height="24" Margin="10,15,0,0" VerticalAlignment="Top" Width="59"/>
 
-                <ListBox  ItemTemplate="{StaticResource testTemplate}" x:Name="lbxCombat" HorizontalAlignment="Left" Height="315" Margin="10,50,0,0" VerticalAlignment="Top" Width="346" BorderThickness="3" BorderBrush="AliceBlue" SelectionChanged="ListBox_SelectionChanged" Grid.Row="1"/>
-                <ListBox x:Name="lbxDeath" HorizontalAlignment="Left" Height="100" Margin="775,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="178"/>
-                <TextBox x:Name="txtbxDamage" HorizontalAlignment="Left" Height="23" Margin="10,417,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="59" RenderTransformOrigin="0.179,-0.385"/>
-                <TextBox x:Name="txtbxHeal" HorizontalAlignment="Left" Height="23" Margin="122,417,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="59" RenderTransformOrigin="0.179,-0.385"/>
-                <TextBlock x:Name="txtDescription" HorizontalAlignment="Left" Margin="424,50,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Height="145" Width="178" Grid.Row="1"/>
-                <TextBlock x:Name="txtClass" HorizontalAlignment="Left" Margin="424,22,0,0" TextWrapping="Wrap" Text="Class" VerticalAlignment="Top" Height="23" Width="95" Grid.Row="1"/>
+                <ListBox  ItemTemplate="{StaticResource testTemplate}" x:Name="lbxCombat" HorizontalAlignment="Left" Height="315" Margin="10,50,0,0" VerticalAlignment="Top" Width="346" SelectionChanged="ListBox_SelectionChanged" Grid.Row="1" Background="White" Grid.ColumnSpan="2" Foreground="Black"/>
+                <ListBox x:Name="lbxDeath" HorizontalAlignment="Left" Height="100" Margin="540.96,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="178" Grid.Column="1"/>
+                <TextBox x:Name="txtbxDamage" HorizontalAlignment="Left" Height="23" Margin="10,417,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="59" RenderTransformOrigin="0.179,-0.385" Foreground="White"/>
+                <TextBox x:Name="txtbxHeal" HorizontalAlignment="Left" Height="23" Margin="122,417,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="59" RenderTransformOrigin="0.179,-0.385" Foreground="White"/>
+                <TextBlock x:Name="txtDescription" HorizontalAlignment="Left" Margin="164,50,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Height="145" Width="178" Grid.Row="1" Foreground="White" Grid.Column="1"/>
+                <TextBlock x:Name="txtClass" HorizontalAlignment="Left" Margin="169,22,0,0" TextWrapping="Wrap" Text="Class" VerticalAlignment="Top" Height="23" Width="95" Grid.Row="1" Foreground="White" Grid.Column="1"/>
                 <Button x:Name="btnDamage" Content="Damage" HorizontalAlignment="Left" Margin="10,445,0,0" Grid.Row="1" VerticalAlignment="Top" Width="89" Height="32" Click="btnDamage_Click"/>
                 <Button x:Name="btnHeal" Content="Heal" HorizontalAlignment="Left" Margin="122,445,0,0" Grid.Row="1" VerticalAlignment="Top" Width="89" Height="32" Click="btnHeal_Click"/>
-                <TextBlock HorizontalAlignment="Left" Margin="18,29,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Grid.Row="1" Width="51"/>
-                <TextBlock HorizontalAlignment="Left" Margin="223,29,0,0" TextWrapping="Wrap" Text="AC" VerticalAlignment="Top" Grid.Row="1" Width="21"/>
-                <TextBlock HorizontalAlignment="Left" Margin="270,29,0,0" TextWrapping="Wrap" Text="HP" VerticalAlignment="Top" Grid.Row="1" Width="21"/>
-       
-                <TextBlock HorizontalAlignment="Left" Margin="322,29,0,0" TextWrapping="Wrap" Text="Dex" VerticalAlignment="Top" Grid.Row="1" Width="34"/>
+                <TextBlock HorizontalAlignment="Left" Margin="18,29,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Grid.Row="1" Width="51" Foreground="White"/>
+                <TextBlock HorizontalAlignment="Left" Margin="223,29,0,0" TextWrapping="Wrap" Text="AC" VerticalAlignment="Top" Grid.Row="1" Width="21" Grid.ColumnSpan="2" Foreground="White"/>
+                <TextBlock HorizontalAlignment="Left" Margin="35.96,29,0,0" TextWrapping="Wrap" Text="HP" VerticalAlignment="Top" Grid.Row="1" Width="21" Foreground="White" Grid.Column="1"/>
+
+                <TextBlock HorizontalAlignment="Left" Margin="87.96,29,0,0" TextWrapping="Wrap" Text="Dex" VerticalAlignment="Top" Grid.Row="1" Width="34" Foreground="White" Grid.Column="1"/>
+                <Image x:Name="ImgClass" Grid.Column="1" HorizontalAlignment="Left" Height="165" Margin="169,200,0,0" Grid.Row="1" VerticalAlignment="Top" Width="173">
+                    <Image.Source>https://www.voanews.com/themes/custom/voa/images/Author__Placeholder.png</Image.Source>
+                </Image>
 
 
             </Grid>
@@ -58,23 +65,23 @@
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="90*"/>
                 </Grid.RowDefinitions>
-                <Button x:Name="btnRoll" Content="Roll" HorizontalAlignment="Left" Margin="10,322,0,0" VerticalAlignment="Top" Width="59" Height="20" Click="btnRoll_Click" Grid.Row="1"/>
+                <Button x:Name="btnRoll" Content="Roll" HorizontalAlignment="Left" Margin="10,322,0,0" VerticalAlignment="Top" Width="59" Height="26" Click="btnRoll_Click" Grid.Row="1"/>
 
-                <RadioButton  Name="D4" Content="D4" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top"/>
-                <RadioButton Name="D6" Content="D6" HorizontalAlignment="Left" Margin="10,17,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-                <RadioButton Name="D8" Content="D8" HorizontalAlignment="Left" Margin="10,64,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-                <RadioButton Name="D10" Content="D10" HorizontalAlignment="Left" Margin="10,109,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-                <RadioButton Name="D12" Content="D12" HorizontalAlignment="Left" Margin="10,154,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-                <RadioButton Name="D20" Content="D20" HorizontalAlignment="Left" Margin="10,202,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-                <RadioButton Name="D100" Content="D100" HorizontalAlignment="Left" Margin="10,254,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+                <RadioButton  Name="D4" Content="D4" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top" Foreground="White"/>
+                <RadioButton Name="D6" Content="D6" HorizontalAlignment="Left" Margin="10,17,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
+                <RadioButton Name="D8" Content="D8" HorizontalAlignment="Left" Margin="10,64,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
+                <RadioButton Name="D10" Content="D10" HorizontalAlignment="Left" Margin="10,109,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
+                <RadioButton Name="D12" Content="D12" HorizontalAlignment="Left" Margin="10,154,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
+                <RadioButton Name="D20" Content="D20" HorizontalAlignment="Left" Margin="10,202,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
+                <RadioButton Name="D100" Content="D100" HorizontalAlignment="Left" Margin="10,254,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
 
-                <TextBlock x:Name="txtD4" HorizontalAlignment="Left" Margin="114,13,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59"/>
-                <TextBlock x:Name="txtD6" HorizontalAlignment="Left" Margin="114,16,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59" Grid.Row="1"/>
-                <TextBlock x:Name="txtD8" HorizontalAlignment="Left" Margin="114,66,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59" Grid.Row="1"/>
-                <TextBlock x:Name="txtD10" HorizontalAlignment="Left" Margin="114,108,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59" Grid.Row="1"/>
-                <TextBlock x:Name="txtD12" HorizontalAlignment="Left" Margin="114,153,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59" Grid.Row="1"/>
-                <TextBlock x:Name="txtD20" HorizontalAlignment="Left" Margin="114,201,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59" Grid.Row="1"/>
-                <TextBlock x:Name="txtD100" HorizontalAlignment="Left" Margin="114,253,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59" Grid.Row="1"/>
+                <TextBlock x:Name="txtD4" HorizontalAlignment="Left" Margin="114,13,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59" Foreground="White"/>
+                <TextBlock x:Name="txtD6" HorizontalAlignment="Left" Margin="114,16,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59" Grid.Row="1" Foreground="White"/>
+                <TextBlock x:Name="txtD8" HorizontalAlignment="Left" Margin="114,66,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59" Grid.Row="1" Foreground="White"/>
+                <TextBlock x:Name="txtD10" HorizontalAlignment="Left" Margin="114,108,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59" Grid.Row="1" Foreground="White"/>
+                <TextBlock x:Name="txtD12" HorizontalAlignment="Left" Margin="114,153,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59" Grid.Row="1" Foreground="White"/>
+                <TextBlock x:Name="txtD20" HorizontalAlignment="Left" Margin="114,201,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59" Grid.Row="1" Foreground="White"/>
+                <TextBlock x:Name="txtD100" HorizontalAlignment="Left" Margin="114,253,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59" Grid.Row="1" Foreground="White"/>
             </Grid>
         </TabItem>
         <TabItem Name="Ex3" Header="Character Creator" Width="110">
@@ -87,17 +94,17 @@
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="90*"/>
                 </Grid.RowDefinitions>
-                <TextBlock HorizontalAlignment="Left" Margin="10,23,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Height="16" Width="57"/>
-                <TextBlock HorizontalAlignment="Left" Margin="169,23,0,0" TextWrapping="Wrap" Text="HP" VerticalAlignment="Top" Height="16" Width="57"/>
-                <TextBlock HorizontalAlignment="Left" Margin="346,23,0,0" TextWrapping="Wrap" Text="AC" VerticalAlignment="Top" Height="16" Width="57"/>
-                <TextBlock HorizontalAlignment="Left" Margin="520,23,0,0" TextWrapping="Wrap" Text="Dex" VerticalAlignment="Top" Height="16" Width="57"/>
-                <TextBlock HorizontalAlignment="Left" Margin="677,23,0,0" TextWrapping="Wrap" Text="Class" VerticalAlignment="Top" Height="16" Width="57"/>
-                <TextBox x:Name="txtbxCreateName" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-                <TextBox x:Name="txtbxCreateHP" HorizontalAlignment="Left" Height="23" Margin="169,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-                <TextBox x:Name="txtbxCreateAC" HorizontalAlignment="Left" Height="23" Margin="346,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-                <TextBox x:Name="txtbxCreateDex" HorizontalAlignment="Left" Height="23" Margin="520,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-                <Button Content="Create Character" HorizontalAlignment="Left" Margin="826,13,0,0" Grid.Row="1" VerticalAlignment="Top" Width="101"/>
-                <ComboBox HorizontalAlignment="Left" Margin="677,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120">
+                <TextBlock HorizontalAlignment="Left" Margin="10,23,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Height="16" Width="57" Foreground="White"/>
+                <TextBlock HorizontalAlignment="Left" Margin="169,23,0,0" TextWrapping="Wrap" Text="HP" VerticalAlignment="Top" Height="16" Width="57" Foreground="White"/>
+                <TextBlock HorizontalAlignment="Left" Margin="346,23,0,0" TextWrapping="Wrap" Text="AC" VerticalAlignment="Top" Height="16" Width="57" Foreground="White"/>
+                <TextBlock HorizontalAlignment="Left" Margin="520,23,0,0" TextWrapping="Wrap" Text="Dex" VerticalAlignment="Top" Height="16" Width="57" Foreground="White"/>
+                <TextBlock HorizontalAlignment="Left" Margin="677,23,0,0" TextWrapping="Wrap" Text="Class" VerticalAlignment="Top" Height="16" Width="57" Foreground="White"/>
+                <TextBox x:Name="txtbxCreateName" HorizontalAlignment="Left" Height="23" Margin="10,13,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Foreground="White"/>
+                <TextBox x:Name="txtbxCreateHP" HorizontalAlignment="Left" Height="23" Margin="169,13,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Foreground="White"/>
+                <TextBox x:Name="txtbxCreateAC" HorizontalAlignment="Left" Height="23" Margin="346,13,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Foreground="White"/>
+                <TextBox x:Name="txtbxCreateDex" HorizontalAlignment="Left" Height="23" Margin="520,13,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Foreground="White"/>
+                <Button Content="Create Character" HorizontalAlignment="Left" Margin="826,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150"/>
+                <ComboBox HorizontalAlignment="Left" Margin="677,8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" Foreground="White">
                     <ComboBoxItem>Barbarian</ComboBoxItem>
                     <ComboBoxItem>Bard</ComboBoxItem>
                     <ComboBoxItem>Cleric</ComboBoxItem>

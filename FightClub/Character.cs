@@ -80,7 +80,8 @@ namespace FightClub
     public class Hero : Character
     {
         /*Properties*/
-        public Classes PlayerClass { get; set; }       
+        public Classes PlayerClass { get; set; }  
+        public Classes ClassImage { get; set; }
 
         /*Constructors*/
         public Hero(string name, int ac, int hp, Classes playerClass, int dex)
@@ -91,6 +92,7 @@ namespace FightClub
             PlayerClass = playerClass;
             Dex = dex;
             Description = "No Description";
+           
 
         }
         public Hero(string name, int ac, int hp, Classes playerClass, int dex, string description)

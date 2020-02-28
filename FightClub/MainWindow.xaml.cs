@@ -169,9 +169,25 @@ namespace FightClub
                 //Display the selected Hero's class property and the discription in the discription text box
                 txtClass.Text = selectedHero.PlayerClass.ToString();
                 txtDescription.Text = selectedHero.Description;
+                if (selectedHero.PlayerClass == Classes.Barbarian )
+                {
+                    ImgClass.Source = new BitmapImage(new Uri("https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/342/420/618/636272680339895080.png"));
+                }
+                if (selectedHero.PlayerClass == Classes.Druid)
+                {
+                    ImgClass.Source = new BitmapImage(new Uri("https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/346/420/618/636272691461725405.png"));
+                }
+                else
+                {
+                    ImgClass.Source = new BitmapImage(new Uri("https://www.voanews.com/themes/custom/voa/images/Author__Placeholder.png"));
+                }
             }
 
         }
+
+    
+
+        //Display Image
         /*Edit HP of Characters*/
 
         // - HP
@@ -211,6 +227,8 @@ namespace FightClub
             }
 
         }
+
+        
         #endregion
         #region Dice Roll Checked
         private void btnRoll_Click(object sender, RoutedEventArgs e)
