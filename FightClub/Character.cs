@@ -24,7 +24,7 @@ namespace FightClub
 
     }
     #region Character
-    public class Character
+    public class Character : IComparable<Character>
     {
         /*Properties*/
         public string Name { get; set; }
@@ -65,6 +65,15 @@ namespace FightClub
         {
             return string.Format("{0} {1} {2} {3}", Name, AC, HP, Dex);
         }
+        //Sorting based on Dex
+        public int CompareTo(Character other)
+        {
+            int returnValue = this.Dex.CompareTo(other.Dex);
+
+            return returnValue;
+
+
+        }
     }
     #endregion
     #region Hero
@@ -100,5 +109,8 @@ namespace FightClub
         }
     }
     #endregion
+   
+        
+
 
 }

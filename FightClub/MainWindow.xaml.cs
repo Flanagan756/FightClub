@@ -62,6 +62,10 @@ namespace FightClub
             combat.Add(hero3);
             combat.Add(hero4);
 
+            //Sorts all Characters based of Dex
+            combat.Sort();
+            combat.Reverse();
+
             //Display all of the characters in the listboxes
             lbxCombat.ItemsSource = combat;
             lbxDeath.ItemsSource = dead;
@@ -100,7 +104,7 @@ namespace FightClub
         {
             for (int i = 0; i < 15; i++)
             {
-                txtD4.Text = RandomNumber(1, 7).ToString();
+                txtD6.Text = RandomNumber(1, 7).ToString();
                 await Task.Delay(50);
             }
         }

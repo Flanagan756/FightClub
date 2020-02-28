@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FightClub"
         mc:Ignorable="d"
-        Title="DnD Fight Club" Height="450" Width="1000">
+        Title="DnD Fight Club" Height="600" Width="1000">
 
     <Window.Resources>
         <DataTemplate x:Key="testTemplate">
@@ -22,23 +22,28 @@
             <Grid>
                 <Grid.ColumnDefinitions>
 
-                    <ColumnDefinition Width="94*"/>
-                    <ColumnDefinition Width="299*"/>
+
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="90*"/>
                 </Grid.RowDefinitions>
-                <Label Content="Dead" HorizontalAlignment="Left" Margin="562,211,0,0" Grid.Row="1" VerticalAlignment="Top" Width="82" Grid.Column="1"/>
-                <Label Content="Combat" HorizontalAlignment="Left" Height="24" Margin="10,24,0,0" VerticalAlignment="Top" Width="163" Grid.Row="1"/>
-                <ListBox  ItemTemplate="{StaticResource testTemplate}" x:Name="lbxCombat" HorizontalAlignment="Left" Height="266" Margin="10,11,0,0" VerticalAlignment="Top" Width="346" SelectionChanged="ListBox_SelectionChanged" Grid.Row="1" Grid.ColumnSpan="2"/>
-                <ListBox x:Name="lbxDeath" HorizontalAlignment="Left" Height="100" Margin="562,242,0,0" Grid.Row="1" VerticalAlignment="Top" Width="178" Grid.Column="1"/>
-                <TextBox x:Name="txtbxDamage" HorizontalAlignment="Left" Height="23" Margin="10,294,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="59" RenderTransformOrigin="0.179,-0.385"/>
-                <TextBox x:Name="txtbxHeal" HorizontalAlignment="Left" Height="23" Margin="74,294,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="59" RenderTransformOrigin="0.179,-0.385"/>
-                <TextBlock x:Name="txtDescription" HorizontalAlignment="Left" Margin="143,132,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Height="145" Width="178" Grid.Row="1" Grid.Column="1"/>
-                <TextBlock x:Name="txtClass" HorizontalAlignment="Left" Margin="143,11,0,0" TextWrapping="Wrap" Text="Class" VerticalAlignment="Top" Height="23" Width="95" Grid.Column="1" Grid.Row="1"/>
-                <Button x:Name="btnDamage" Content="Damage" HorizontalAlignment="Left" Margin="10,322,0,0" Grid.Row="1" VerticalAlignment="Top" Width="59" Height="20" Click="btnDamage_Click"/>
-                <Button x:Name="btnHeal" Content="Heal" HorizontalAlignment="Left" Margin="74,322,0,0" Grid.Row="1" VerticalAlignment="Top" Width="59" Height="20" Click="btnHeal_Click"/>
+                <Label Content="Dead" HorizontalAlignment="Left" Margin="763,21,0,0" VerticalAlignment="Top" Width="82" Grid.Row="1"/>
+                <Label Content="Combat" HorizontalAlignment="Left" Height="24" Margin="10,15,0,0" VerticalAlignment="Top" Width="59"/>
+
+                <ListBox  ItemTemplate="{StaticResource testTemplate}" x:Name="lbxCombat" HorizontalAlignment="Left" Height="315" Margin="10,50,0,0" VerticalAlignment="Top" Width="346" BorderThickness="3" BorderBrush="AliceBlue" SelectionChanged="ListBox_SelectionChanged" Grid.Row="1"/>
+                <ListBox x:Name="lbxDeath" HorizontalAlignment="Left" Height="100" Margin="775,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="178"/>
+                <TextBox x:Name="txtbxDamage" HorizontalAlignment="Left" Height="23" Margin="10,417,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="59" RenderTransformOrigin="0.179,-0.385"/>
+                <TextBox x:Name="txtbxHeal" HorizontalAlignment="Left" Height="23" Margin="122,417,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="59" RenderTransformOrigin="0.179,-0.385"/>
+                <TextBlock x:Name="txtDescription" HorizontalAlignment="Left" Margin="424,50,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Height="145" Width="178" Grid.Row="1"/>
+                <TextBlock x:Name="txtClass" HorizontalAlignment="Left" Margin="424,22,0,0" TextWrapping="Wrap" Text="Class" VerticalAlignment="Top" Height="23" Width="95" Grid.Row="1"/>
+                <Button x:Name="btnDamage" Content="Damage" HorizontalAlignment="Left" Margin="10,445,0,0" Grid.Row="1" VerticalAlignment="Top" Width="89" Height="32" Click="btnDamage_Click"/>
+                <Button x:Name="btnHeal" Content="Heal" HorizontalAlignment="Left" Margin="122,445,0,0" Grid.Row="1" VerticalAlignment="Top" Width="89" Height="32" Click="btnHeal_Click"/>
+                <TextBlock HorizontalAlignment="Left" Margin="18,29,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Grid.Row="1" Width="51"/>
+                <TextBlock HorizontalAlignment="Left" Margin="223,29,0,0" TextWrapping="Wrap" Text="AC" VerticalAlignment="Top" Grid.Row="1" Width="21"/>
+                <TextBlock HorizontalAlignment="Left" Margin="270,29,0,0" TextWrapping="Wrap" Text="HP" VerticalAlignment="Top" Grid.Row="1" Width="21"/>
+       
+                <TextBlock HorizontalAlignment="Left" Margin="322,29,0,0" TextWrapping="Wrap" Text="Dex" VerticalAlignment="Top" Grid.Row="1" Width="34"/>
 
 
             </Grid>
