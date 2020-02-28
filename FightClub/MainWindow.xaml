@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FightClub"
         mc:Ignorable="d"
-        Title="DnD Fight Club" Height="450" Width="800">
+        Title="DnD Fight Club" Height="450" Width="1000">
 
     <Window.Resources>
         <DataTemplate x:Key="testTemplate">
@@ -22,22 +22,24 @@
             <Grid>
                 <Grid.ColumnDefinitions>
 
-                    <ColumnDefinition Width="755*"/>
+                    <ColumnDefinition Width="94*"/>
+                    <ColumnDefinition Width="299*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="90*"/>
                 </Grid.RowDefinitions>
-                <Label Content="Dead" HorizontalAlignment="Left" Margin="598,211,0,0" Grid.Row="1" VerticalAlignment="Top" Width="82"/>
-                <Label Content="Combat" HorizontalAlignment="Left" Height="24" Margin="10,63,0,0" VerticalAlignment="Top" Width="163"/>
-                <ListBox  ItemTemplate="{StaticResource testTemplate}" x:Name="lbxCombat" HorizontalAlignment="Left" Height="266" Margin="10,11,0,0" VerticalAlignment="Top" Width="346" SelectionChanged="ListBox_SelectionChanged" Grid.Row="1"/>
-                <ListBox x:Name="lbxDeath" HorizontalAlignment="Left" Height="100" Margin="598,242,0,0" Grid.Row="1" VerticalAlignment="Top" Width="178"/>
+                <Label Content="Dead" HorizontalAlignment="Left" Margin="562,211,0,0" Grid.Row="1" VerticalAlignment="Top" Width="82" Grid.Column="1"/>
+                <Label Content="Combat" HorizontalAlignment="Left" Height="24" Margin="10,24,0,0" VerticalAlignment="Top" Width="163" Grid.Row="1"/>
+                <ListBox  ItemTemplate="{StaticResource testTemplate}" x:Name="lbxCombat" HorizontalAlignment="Left" Height="266" Margin="10,11,0,0" VerticalAlignment="Top" Width="346" SelectionChanged="ListBox_SelectionChanged" Grid.Row="1" Grid.ColumnSpan="2"/>
+                <ListBox x:Name="lbxDeath" HorizontalAlignment="Left" Height="100" Margin="562,242,0,0" Grid.Row="1" VerticalAlignment="Top" Width="178" Grid.Column="1"/>
                 <TextBox x:Name="txtbxDamage" HorizontalAlignment="Left" Height="23" Margin="10,294,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="59" RenderTransformOrigin="0.179,-0.385"/>
                 <TextBox x:Name="txtbxHeal" HorizontalAlignment="Left" Height="23" Margin="74,294,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="59" RenderTransformOrigin="0.179,-0.385"/>
-                <TextBlock x:Name="txtDescription" HorizontalAlignment="Left" Margin="565,10,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Height="145" Width="178" Grid.Row="1"/>
-                <TextBlock x:Name="txtClass" HorizontalAlignment="Left" Margin="565,10,0,0" TextWrapping="Wrap" Text="Class" VerticalAlignment="Top" Height="23" Width="95"/>
+                <TextBlock x:Name="txtDescription" HorizontalAlignment="Left" Margin="143,132,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Height="145" Width="178" Grid.Row="1" Grid.Column="1"/>
+                <TextBlock x:Name="txtClass" HorizontalAlignment="Left" Margin="143,11,0,0" TextWrapping="Wrap" Text="Class" VerticalAlignment="Top" Height="23" Width="95" Grid.Column="1" Grid.Row="1"/>
                 <Button x:Name="btnDamage" Content="Damage" HorizontalAlignment="Left" Margin="10,322,0,0" Grid.Row="1" VerticalAlignment="Top" Width="59" Height="20" Click="btnDamage_Click"/>
                 <Button x:Name="btnHeal" Content="Heal" HorizontalAlignment="Left" Margin="74,322,0,0" Grid.Row="1" VerticalAlignment="Top" Width="59" Height="20" Click="btnHeal_Click"/>
+
 
             </Grid>
         </TabItem>
@@ -70,5 +72,37 @@
                 <TextBlock x:Name="txtD100" HorizontalAlignment="Left" Margin="114,253,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59" Grid.Row="1"/>
             </Grid>
         </TabItem>
+        <TabItem Name="Ex3" Header="Character Creator" Width="110">
+            <Grid>
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="755*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="90*"/>
+                </Grid.RowDefinitions>
+                <TextBlock HorizontalAlignment="Left" Margin="10,23,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Height="16" Width="57"/>
+                <TextBlock HorizontalAlignment="Left" Margin="169,23,0,0" TextWrapping="Wrap" Text="HP" VerticalAlignment="Top" Height="16" Width="57"/>
+                <TextBlock HorizontalAlignment="Left" Margin="346,23,0,0" TextWrapping="Wrap" Text="AC" VerticalAlignment="Top" Height="16" Width="57"/>
+                <TextBlock HorizontalAlignment="Left" Margin="520,23,0,0" TextWrapping="Wrap" Text="Dex" VerticalAlignment="Top" Height="16" Width="57"/>
+                <TextBlock HorizontalAlignment="Left" Margin="677,23,0,0" TextWrapping="Wrap" Text="Class" VerticalAlignment="Top" Height="16" Width="57"/>
+                <TextBox x:Name="txtbxCreateName" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="txtbxCreateHP" HorizontalAlignment="Left" Height="23" Margin="169,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="txtbxCreateAC" HorizontalAlignment="Left" Height="23" Margin="346,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="txtbxCreateDex" HorizontalAlignment="Left" Height="23" Margin="520,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                <Button Content="Create Character" HorizontalAlignment="Left" Margin="826,13,0,0" Grid.Row="1" VerticalAlignment="Top" Width="101"/>
+                <ComboBox HorizontalAlignment="Left" Margin="677,11,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120">
+                    <ComboBoxItem>Barbarian</ComboBoxItem>
+                    <ComboBoxItem>Bard</ComboBoxItem>
+                    <ComboBoxItem>Cleric</ComboBoxItem>
+                </ComboBox>
+
+
+
+
+            </Grid>
+        </TabItem>
+
     </TabControl>
 </Window>

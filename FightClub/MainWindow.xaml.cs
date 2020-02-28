@@ -86,8 +86,66 @@ namespace FightClub
             lbxDeath.ItemsSource = dead;
 
         }
+        //Delays to simulate a live dice roll
+        #region Dice Roll Methods
+        private async void DiceRoll4()
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                txtD4.Text = RandomNumber(1, 5).ToString();
+                await Task.Delay(50);
+            }
+        }
+        private async void DiceRoll6()
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                txtD4.Text = RandomNumber(1, 7).ToString();
+                await Task.Delay(50);
+            }
+        }
+        private async void DiceRoll8()
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                txtD8.Text = RandomNumber(1, 9).ToString();
+                await Task.Delay(50);
+            }
+        }
+        private async void DiceRoll10()
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                txtD10.Text = RandomNumber(1, 11).ToString();
+                await Task.Delay(50);
+            }
+        }
+        private async void DiceRoll12()
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                txtD12.Text = RandomNumber(1, 13).ToString();
+                await Task.Delay(50);
+            }
+        }
+        private async void DiceRoll20()
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                txtD20.Text = RandomNumber(1, 21).ToString();
+                await Task.Delay(50);
+            }
+        }
+        private async void DiceRoll100()
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                txtD100.Text = RandomNumber(1, 101).ToString();
+                await Task.Delay(50);
+            }
+        }
         #endregion
-
+        #endregion
         #region Combat_Tab
 
         /*Display Classes in listboxes*/
@@ -150,46 +208,33 @@ namespace FightClub
 
         }
         #endregion
-        #region Dice_Roller
+        #region Dice Roll Checked
         private void btnRoll_Click(object sender, RoutedEventArgs e)
         {
             if (D4.IsChecked == true)
             {
-                txtD4.Text = RandomNumber(1, 5).ToString();       
+                DiceRoll4(); 
             }
             if (D6.IsChecked == true)
             {
-                txtD6.Text = RandomNumber(1, 7).ToString();
+                DiceRoll6();
             }
             if (D8.IsChecked == true)
             {
-                txtD8.Text = RandomNumber(1, 9).ToString();
+                DiceRoll8();
             }
             if (D10.IsChecked == true)
             {
-                txtD10.Text = RandomNumber(1, 11).ToString();
+                DiceRoll10();
             }
             if (D12.IsChecked == true)
             {
-                txtD12.Text = RandomNumber(1, 13).ToString();
+                DiceRoll12();
             }
             if (D20.IsChecked == true)
             {
-                txtD20.Text = RandomNumber(1, 21).ToString();
-                if (txtD20.Text == "20")
-                {
-                    txtD20.Foreground = Brushes.Gold;
-                    MessageBox.Show("20", "Yes! Natural 20!", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-                else if (txtD20.Text == "1")
-                {
-                    txtD20.Foreground = Brushes.Red;
-                    MessageBox.Show("1", "Oh No! Natural 1!", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                else
-                {
-                    txtD20.Foreground = Brushes.Black;
-                }
+                DiceRoll20();
+             
             }
             if (D100.IsChecked == true)
             {
@@ -201,3 +246,4 @@ namespace FightClub
 
     }
 }
+
