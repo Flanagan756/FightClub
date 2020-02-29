@@ -163,31 +163,70 @@ namespace FightClub
                 //Display Class as enemy and the Discription in the discription text box
                 txtClass.Text = "Enemy";
                 txtDescription.Text = selectedCharacter.Description;
+                ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Enemy.png"));
+                
             }
             if (selectedHero != null) //Checks to see if the selected character isn't null and is of the subclass Hero
             {
                 //Display the selected Hero's class property and the discription in the discription text box
                 txtClass.Text = selectedHero.PlayerClass.ToString();
                 txtDescription.Text = selectedHero.Description;
+                //Dispalys image within the ImgClass depending on the hero's class which is stored on a AWS S3
+                #region Class Image
                 if (selectedHero.PlayerClass == Classes.Barbarian )
                 {
-                    ImgClass.Source = new BitmapImage(new Uri("https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/342/420/618/636272680339895080.png"));
+                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Barbarian.png"));
+                }
+                if (selectedHero.PlayerClass == Classes.Bard)
+                {
+                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Bard.png"));
+                }
+                if (selectedHero.PlayerClass == Classes.Cleric)
+                {
+                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Cleric.png"));
                 }
                 if (selectedHero.PlayerClass == Classes.Druid)
                 {
-                    ImgClass.Source = new BitmapImage(new Uri("https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/346/420/618/636272691461725405.png"));
+                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Druid.png"));
                 }
-                else
+                if (selectedHero.PlayerClass == Classes.Figther)
                 {
-                    ImgClass.Source = new BitmapImage(new Uri("https://www.voanews.com/themes/custom/voa/images/Author__Placeholder.png"));
+                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Fighter.png"));
                 }
+                if (selectedHero.PlayerClass == Classes.Monk)
+                {
+                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Monk.png"));
+                }
+                if (selectedHero.PlayerClass == Classes.Paladin)
+                {
+                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Paladin.png"));
+                }
+                if (selectedHero.PlayerClass == Classes.Ranger)
+                {
+                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Ranger.png"));
+                }
+                if (selectedHero.PlayerClass == Classes.Rouge)
+                {
+                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Rouge.png"));
+                }
+                if (selectedHero.PlayerClass == Classes.Sorcerer)
+                {
+                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Sorcerer.png"));
+                }
+                if (selectedHero.PlayerClass == Classes.Warlock)
+                {
+                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Warlock.png"));
+                }
+                if (selectedHero.PlayerClass == Classes.Wizard)
+                {
+                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Wizard.png"));
+                }
+                #endregion
+
             }
 
         }
 
-    
-
-        //Display Image
         /*Edit HP of Characters*/
 
         // - HP

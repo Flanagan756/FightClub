@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FightClub"
         mc:Ignorable="d"
-        Title="DnD Fight Club" Height="600" Width="1000" Background="White">
+        Title="DnD Fight Club" Height="600" Width="1200" Background="White">
 
     <Window.Resources>
         <DataTemplate x:Key="testTemplate">
@@ -32,25 +32,24 @@
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="90*"/>
                 </Grid.RowDefinitions>
-                <Label Content="Dead" HorizontalAlignment="Left" Margin="528.96,21,0,0" VerticalAlignment="Top" Width="82" Grid.Row="1" Grid.Column="1"/>
-                <Label Content="Combat" HorizontalAlignment="Left" Height="24" Margin="10,15,0,0" VerticalAlignment="Top" Width="59"/>
-
+                <Label Content="Dead" HorizontalAlignment="Left" Margin="683,33,0,0" VerticalAlignment="Top" Width="82" Grid.Column="1" FontSize="16" Grid.RowSpan="2"/>
+                <Label Content="Combat" HorizontalAlignment="Left" Height="29" Margin="10,25,0,0" VerticalAlignment="Top" Width="78" FontSize="16"/>
+                <Label Content="Character Info" HorizontalAlignment="Left" Height="29" Margin="90,25,0,0" VerticalAlignment="Top" Width="121" FontSize="16" Grid.Column="1"/>
                 <ListBox  ItemTemplate="{StaticResource testTemplate}" x:Name="lbxCombat" HorizontalAlignment="Left" Height="315" Margin="10,50,0,0" VerticalAlignment="Top" Width="346" SelectionChanged="ListBox_SelectionChanged" Grid.Row="1" Background="White" Grid.ColumnSpan="2" Foreground="Black"/>
-                <ListBox x:Name="lbxDeath" HorizontalAlignment="Left" Height="100" Margin="540.96,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="178" Grid.Column="1"/>
+                <ListBox x:Name="lbxDeath" HorizontalAlignment="Left" Height="315" Margin="683,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="178" Grid.Column="1" Background="White"/>
                 <TextBox x:Name="txtbxDamage" HorizontalAlignment="Left" Height="23" Margin="10,417,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="59" RenderTransformOrigin="0.179,-0.385" Foreground="White"/>
                 <TextBox x:Name="txtbxHeal" HorizontalAlignment="Left" Height="23" Margin="122,417,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="59" RenderTransformOrigin="0.179,-0.385" Foreground="White"/>
-                <TextBlock x:Name="txtDescription" HorizontalAlignment="Left" Margin="164,50,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Height="145" Width="178" Grid.Row="1" Foreground="White" Grid.Column="1"/>
-                <TextBlock x:Name="txtClass" HorizontalAlignment="Left" Margin="169,22,0,0" TextWrapping="Wrap" Text="Class" VerticalAlignment="Top" Height="23" Width="95" Grid.Row="1" Foreground="White" Grid.Column="1"/>
+                <TextBlock x:Name="txtDescription" HorizontalAlignment="Left" Margin="394,78,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Height="287" Width="259" Grid.Row="1" Foreground="White" Grid.Column="1"/>
+                <TextBlock x:Name="txtClass" HorizontalAlignment="Left" Margin="394,50,0,0" TextWrapping="Wrap" Text="Class" VerticalAlignment="Top" Height="23" Width="96" Foreground="White" Grid.Column="1" Grid.Row="1"/>
                 <Button x:Name="btnDamage" Content="Damage" HorizontalAlignment="Left" Margin="10,445,0,0" Grid.Row="1" VerticalAlignment="Top" Width="89" Height="32" Click="btnDamage_Click"/>
                 <Button x:Name="btnHeal" Content="Heal" HorizontalAlignment="Left" Margin="122,445,0,0" Grid.Row="1" VerticalAlignment="Top" Width="89" Height="32" Click="btnHeal_Click"/>
-                <TextBlock HorizontalAlignment="Left" Margin="18,29,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Grid.Row="1" Width="51" Foreground="White"/>
-                <TextBlock HorizontalAlignment="Left" Margin="223,29,0,0" TextWrapping="Wrap" Text="AC" VerticalAlignment="Top" Grid.Row="1" Width="21" Grid.ColumnSpan="2" Foreground="White"/>
-                <TextBlock HorizontalAlignment="Left" Margin="35.96,29,0,0" TextWrapping="Wrap" Text="HP" VerticalAlignment="Top" Grid.Row="1" Width="21" Foreground="White" Grid.Column="1"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,32,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Grid.Row="1" Width="51" Foreground="White"/>
+                <TextBlock HorizontalAlignment="Left" Margin="218,32,0,0" TextWrapping="Wrap" Text="AC" VerticalAlignment="Top" Grid.Row="1" Width="21" Foreground="White"/>
+                <TextBlock HorizontalAlignment="Left" Margin="271,32,0,0" TextWrapping="Wrap" Text="HP" VerticalAlignment="Top" Grid.Row="1" Width="21" Foreground="White" Grid.ColumnSpan="2"/>
 
-                <TextBlock HorizontalAlignment="Left" Margin="87.96,29,0,0" TextWrapping="Wrap" Text="Dex" VerticalAlignment="Top" Grid.Row="1" Width="34" Foreground="White" Grid.Column="1"/>
-                <Image x:Name="ImgClass" Grid.Column="1" HorizontalAlignment="Left" Height="165" Margin="169,200,0,0" Grid.Row="1" VerticalAlignment="Top" Width="173">
-                    <Image.Source>https://www.voanews.com/themes/custom/voa/images/Author__Placeholder.png</Image.Source>
-                </Image>
+                <TextBlock HorizontalAlignment="Left" Margin="41,32,0,0" TextWrapping="Wrap" Text="Dex" VerticalAlignment="Top" Grid.Row="1" Width="34" Foreground="White" Grid.Column="1"/>
+                <Image x:Name="ImgClass" Grid.Column="1" HorizontalAlignment="Left" Height="315" Margin="90,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="304"/>
+
 
 
             </Grid>
