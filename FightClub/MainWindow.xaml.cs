@@ -49,6 +49,7 @@ namespace FightClub
             Hero hero3 = new Hero("Susan Songhart", 9, 11, Classes.Bard, 20, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.");
             Hero hero4 = new Hero("Mary Ironfist", 15, 18, Classes.Monk, 17);
             Hero hero5 = new Hero("Ragagast the Wise", 9, 14, Classes.Wizard, 10, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut");
+            Hero hero6 = new Hero("Favra Trukamre", 12, 15, Classes.Ranger, 17, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ");
             #endregion
 
             #region Add Characters to List
@@ -63,6 +64,7 @@ namespace FightClub
             combat.Add(hero3);
             combat.Add(hero4);
             combat.Add(hero5);
+            combat.Add(hero6);
 
             //Sorts all Characters based of Dex
             combat.Sort();
@@ -161,6 +163,8 @@ namespace FightClub
         {
             Character selectedCharacter = lbxCombat.SelectedItem as Character;
             Hero selectedHero = lbxCombat.SelectedItem as Hero;
+
+           
 
             if (selectedCharacter != null) //Checks to see if the selected charcter isn't equal to null
             {
@@ -305,13 +309,16 @@ namespace FightClub
             }
 
         }
+
+
+
         #endregion
 
-
         #endregion
 
+    
 
-
+       
     }
 }
 

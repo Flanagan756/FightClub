@@ -36,7 +36,7 @@
                 <Label Content="Combat" HorizontalAlignment="Left" Height="29" Margin="10,25,0,0" VerticalAlignment="Top" Width="78" FontSize="16"/>
                 <Label Content="Character Info" HorizontalAlignment="Left" Height="29" Margin="109,25,0,0" VerticalAlignment="Top" Width="120" FontSize="16" Grid.Column="1"/>
                 <ListBox  ItemTemplate="{StaticResource testTemplate}" x:Name="lbxCombat" HorizontalAlignment="Left" Height="315" Margin="10,50,0,0" VerticalAlignment="Top" Width="346" SelectionChanged="ListBox_SelectionChanged" Grid.Row="1" Background="White" Grid.ColumnSpan="2" Foreground="Black"/>
-                <ListBox x:Name="lbxDeath" HorizontalAlignment="Left" Height="315" Margin="683,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="178" Grid.Column="1" Background="White"/>
+                <ListBox x:Name="lbxDeath" HorizontalAlignment="Left" Height="315" Margin="683,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="178" Grid.Column="1" Background="White" Foreground="Black"/>
                 <TextBox x:Name="txtbxDamage" HorizontalAlignment="Left" Height="23" Margin="10,417,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="59" RenderTransformOrigin="0.179,-0.385" Foreground="White"/>
                 <TextBox x:Name="txtbxHeal" HorizontalAlignment="Left" Height="23" Margin="122,417,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="59" RenderTransformOrigin="0.179,-0.385" Foreground="White"/>
                 <TextBlock x:Name="txtDescription" HorizontalAlignment="Left" Margin="394,78,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Height="287" Width="259" Grid.Row="1" Foreground="White" Grid.Column="1"/>
@@ -60,6 +60,7 @@
                 </ComboBox>
                 <Button x:Name="btnDiceRoll" Content="Roll" HorizontalAlignment="Left" Margin="227,445,0,0" Grid.Row="1" VerticalAlignment="Top" Width="95" Grid.ColumnSpan="2" Click="btnDiceRoll_Click"/>
                 <TextBlock x:Name="txtblDiceResult" HorizontalAlignment="Left" Margin="5,413,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Foreground="White" FontSize="20" Width="36" RenderTransformOrigin="2.583,-0.111" Grid.Column="1"/>
+                <Button x:Name="btnRevive" Content="Revive" Grid.Column="1" HorizontalAlignment="Left" Margin="683,370,0,0" Grid.Row="1" VerticalAlignment="Top" Width="74"/>
 
 
             </Grid>
