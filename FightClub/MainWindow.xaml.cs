@@ -96,7 +96,7 @@ namespace FightClub
         {
             for (int i = 0; i < 15; i++)
             {
-                txtD4.Text = RandomNumber(1, 5).ToString();
+                txtblDiceResult.Text = RandomNumber(1, 5).ToString();
                 await Task.Delay(50);
             }
         }
@@ -104,7 +104,7 @@ namespace FightClub
         {
             for (int i = 0; i < 15; i++)
             {
-                txtD6.Text = RandomNumber(1, 7).ToString();
+                txtblDiceResult.Text = RandomNumber(1, 7).ToString();
                 await Task.Delay(50);
             }
         }
@@ -112,7 +112,7 @@ namespace FightClub
         {
             for (int i = 0; i < 15; i++)
             {
-                txtD8.Text = RandomNumber(1, 9).ToString();
+                txtblDiceResult.Text = RandomNumber(1, 9).ToString();
                 await Task.Delay(50);
             }
         }
@@ -120,7 +120,7 @@ namespace FightClub
         {
             for (int i = 0; i < 15; i++)
             {
-                txtD10.Text = RandomNumber(1, 11).ToString();
+                txtblDiceResult.Text = RandomNumber(1, 11).ToString();
                 await Task.Delay(50);
             }
         }
@@ -128,7 +128,7 @@ namespace FightClub
         {
             for (int i = 0; i < 15; i++)
             {
-                txtD12.Text = RandomNumber(1, 13).ToString();
+                txtblDiceResult.Text = RandomNumber(1, 13).ToString();
                 await Task.Delay(50);
             }
         }
@@ -136,7 +136,7 @@ namespace FightClub
         {
             for (int i = 0; i < 15; i++)
             {
-                txtD20.Text = RandomNumber(1, 21).ToString();
+                txtblDiceResult.Text = RandomNumber(1, 21).ToString();
                 await Task.Delay(50);
             }
         }
@@ -144,7 +144,7 @@ namespace FightClub
         {
             for (int i = 0; i < 15; i++)
             {
-                txtD100.Text = RandomNumber(1, 101).ToString();
+                txtblDiceResult.Text = RandomNumber(1, 101).ToString();
                 await Task.Delay(50);
             }
         }
@@ -302,9 +302,41 @@ namespace FightClub
                 txtD100.Text = RandomNumber(1, 101).ToString();
             }
         }
+
         #endregion
 
-
+        private void btnDiceRoll_Click(object sender, RoutedEventArgs e)
+        {
+            if(cmboxDice.Text == "D4")
+            {
+                DiceRoll4();
+            }
+            if (cmboxDice.Text == "D6")
+            {
+                DiceRoll6();
+            }
+            if (cmboxDice.Text == "D8")
+            {
+                DiceRoll8();
+            }
+            if (cmboxDice.Text == "D10")
+            {
+                DiceRoll10();
+            }
+            if (cmboxDice.Text == "D12")
+            {
+                DiceRoll12();
+            }
+            if (cmboxDice.Text == "D20")
+            {
+                DiceRoll20();
+            }
+            if (cmboxDice.Text == "D100")
+            {
+                DiceRoll100();
+            }
+            
+        }
     }
 }
 
