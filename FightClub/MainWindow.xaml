@@ -32,9 +32,9 @@
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="90*"/>
                 </Grid.RowDefinitions>
-                <Label Content="Dead" HorizontalAlignment="Left" Margin="683,25,0,0" VerticalAlignment="Top" Width="82" Grid.Column="1" FontSize="16"/>
+                <Label Content="Dead Heros" HorizontalAlignment="Left" Margin="683,25,0,0" VerticalAlignment="Top" Width="102" Grid.Column="1" FontSize="16"/>
                 <Label Content="Combat" HorizontalAlignment="Left" Height="29" Margin="10,25,0,0" VerticalAlignment="Top" Width="78" FontSize="16"/>
-                <Label Content="Character Info" HorizontalAlignment="Left" Height="29" Margin="90,33,0,0" VerticalAlignment="Top" Width="120" FontSize="16" Grid.Column="1" Grid.RowSpan="2"/>
+                <Label Content="Character Info" HorizontalAlignment="Left" Height="29" Margin="109,25,0,0" VerticalAlignment="Top" Width="120" FontSize="16" Grid.Column="1"/>
                 <ListBox  ItemTemplate="{StaticResource testTemplate}" x:Name="lbxCombat" HorizontalAlignment="Left" Height="315" Margin="10,50,0,0" VerticalAlignment="Top" Width="346" SelectionChanged="ListBox_SelectionChanged" Grid.Row="1" Background="White" Grid.ColumnSpan="2" Foreground="Black"/>
                 <ListBox x:Name="lbxDeath" HorizontalAlignment="Left" Height="315" Margin="683,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="178" Grid.Column="1" Background="White"/>
                 <TextBox x:Name="txtbxDamage" HorizontalAlignment="Left" Height="23" Margin="10,417,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="59" RenderTransformOrigin="0.179,-0.385" Foreground="White"/>
@@ -48,7 +48,7 @@
                 <TextBlock HorizontalAlignment="Left" Margin="271,32,0,0" TextWrapping="Wrap" Text="HP" VerticalAlignment="Top" Grid.Row="1" Width="21" Foreground="White" Grid.ColumnSpan="2"/>
 
                 <TextBlock HorizontalAlignment="Left" Margin="41,32,0,0" TextWrapping="Wrap" Text="Dex" VerticalAlignment="Top" Grid.Row="1" Width="34" Foreground="White" Grid.Column="1"/>
-                <Image x:Name="ImgClass" Grid.Column="1" HorizontalAlignment="Left" Height="315" Margin="90,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="304"/>
+                <Image x:Name="ImgClass" Grid.Column="1" HorizontalAlignment="Left" Height="315" Margin="109,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="285"/>
                 <ComboBox x:Name="cmboxDice" HorizontalAlignment="Left" Margin="231,412,0,0" Grid.Row="1" VerticalAlignment="Top" Width="45" Foreground="White">
                     <ComboBoxItem>D4</ComboBoxItem>
                     <ComboBoxItem>D6</ComboBoxItem>
@@ -64,36 +64,8 @@
 
             </Grid>
         </TabItem>
-        <TabItem Name="Ex2" Header="Dice Roller" Width="70">
-            <Grid>
-                <Grid.ColumnDefinitions>
 
-                    <ColumnDefinition Width="755*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="10*"/>
-                    <RowDefinition Height="90*"/>
-                </Grid.RowDefinitions>
-                <Button x:Name="btnRoll" Content="Roll" HorizontalAlignment="Left" Margin="10,322,0,0" VerticalAlignment="Top" Width="59" Height="26" Click="btnRoll_Click" Grid.Row="1"/>
-
-                <RadioButton  Name="D4" Content="D4" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top" Foreground="White"/>
-                <RadioButton Name="D6" Content="D6" HorizontalAlignment="Left" Margin="10,17,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
-                <RadioButton Name="D8" Content="D8" HorizontalAlignment="Left" Margin="10,64,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
-                <RadioButton Name="D10" Content="D10" HorizontalAlignment="Left" Margin="10,109,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
-                <RadioButton Name="D12" Content="D12" HorizontalAlignment="Left" Margin="10,154,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
-                <RadioButton Name="D20" Content="D20" HorizontalAlignment="Left" Margin="10,202,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
-                <RadioButton Name="D100" Content="D100" HorizontalAlignment="Left" Margin="10,254,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
-
-                <TextBlock x:Name="txtD4" HorizontalAlignment="Left" Margin="114,13,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59" Foreground="White"/>
-                <TextBlock x:Name="txtD6" HorizontalAlignment="Left" Margin="114,16,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59" Grid.Row="1" Foreground="White"/>
-                <TextBlock x:Name="txtD8" HorizontalAlignment="Left" Margin="114,66,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59" Grid.Row="1" Foreground="White"/>
-                <TextBlock x:Name="txtD10" HorizontalAlignment="Left" Margin="114,108,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59" Grid.Row="1" Foreground="White"/>
-                <TextBlock x:Name="txtD12" HorizontalAlignment="Left" Margin="114,153,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59" Grid.Row="1" Foreground="White"/>
-                <TextBlock x:Name="txtD20" HorizontalAlignment="Left" Margin="114,201,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59" Grid.Row="1" Foreground="White"/>
-                <TextBlock x:Name="txtD100" HorizontalAlignment="Left" Margin="114,253,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="22" Width="59" Grid.Row="1" Foreground="White"/>
-            </Grid>
-        </TabItem>
-        <TabItem Name="Ex3" Header="Character Creator" Width="110">
+        <TabItem Name="Ex2" Header="Character Creator" Width="110">
             <Grid>
                 <Grid.ColumnDefinitions>
 
@@ -117,6 +89,14 @@
                     <ComboBoxItem>Barbarian</ComboBoxItem>
                     <ComboBoxItem>Bard</ComboBoxItem>
                     <ComboBoxItem>Cleric</ComboBoxItem>
+                    <ComboBoxItem>Druid</ComboBoxItem>
+                    <ComboBoxItem>Fighter</ComboBoxItem>
+                    <ComboBoxItem>Monk</ComboBoxItem>
+                    <ComboBoxItem>Paladin</ComboBoxItem>
+                    <ComboBoxItem>Ranger</ComboBoxItem>
+                    <ComboBoxItem>Rouge</ComboBoxItem>
+                    <ComboBoxItem>Warlock</ComboBoxItem>
+                    <ComboBoxItem>Wizard</ComboBoxItem>
                 </ComboBox>
 
 

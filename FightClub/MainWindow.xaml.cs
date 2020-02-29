@@ -44,10 +44,11 @@ namespace FightClub
             Character enemy3 = new Character("Skeleton2", 13, 13, 9, "Skeletons were undead animated corpses similar to zombies, but completely devoid of flesh and did not feed on the living. They could be made from virtually any solid creature, and as such their size and power varied widely. In addition to the basic humanoid skeleton, there were also skeletons created from wolves, trolls, ettins and even giants.");
 
             //Create Heros
-            Hero hero1 = new Hero("Yosef Bolof", 14, 22, Classes.Barbarian, 2, "Yosef lived in seclusion – either in a sheltered community such as a monastery, or entirely alone – for a formative part of his life.In Yoself's time apart from the clamor of society, you found quiet, solitude, and perhaps some of the answers he was looking for.");
+            Hero hero1 = new Hero("Ig The Barbarian", 14, 22, Classes.Barbarian, 2, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.");
             Hero hero2 = new Hero("MitaK", 17, 25, Classes.Paladin, 11, "MitaK is a famed conquere of the land and shows no mercy to his enemies");
-            Hero hero3 = new Hero("Sticks the Undead", 9, 11, Classes.Bard, 20, "A Undead Musician cursed to travel the land to finished some unfinished business so his soul can move on");
-            Hero hero4 = new Hero("Leon Swampson", 15, 18, Classes.Druid, 17);
+            Hero hero3 = new Hero("Susan Songhart", 9, 11, Classes.Bard, 20, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.");
+            Hero hero4 = new Hero("Mary Ironfist", 15, 18, Classes.Monk, 17);
+            Hero hero5 = new Hero("Ragagast the Wise", 9, 14, Classes.Wizard, 10, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut");
             #endregion
 
             #region Add Characters to List
@@ -61,6 +62,7 @@ namespace FightClub
             combat.Add(hero2);
             combat.Add(hero3);
             combat.Add(hero4);
+            combat.Add(hero5);
 
             //Sorts all Characters based of Dex
             combat.Sort();
@@ -90,8 +92,9 @@ namespace FightClub
             lbxDeath.ItemsSource = dead;
 
         }
+
+        #region Dice Roll Method
         //Delays to simulate a live dice roll
-        #region Dice Roll Methods
         private async void DiceRoll4()
         {
             for (int i = 0; i < 15; i++)
@@ -150,6 +153,7 @@ namespace FightClub
         }
         #endregion
         #endregion
+
         #region Combat_Tab
 
         /*Display Classes in listboxes*/
@@ -266,48 +270,12 @@ namespace FightClub
             }
 
         }
-
-        
-        #endregion
-        #region Dice Roll Checked
-        private void btnRoll_Click(object sender, RoutedEventArgs e)
-        {
-            if (D4.IsChecked == true)
-            {
-                DiceRoll4(); 
-            }
-            if (D6.IsChecked == true)
-            {
-                DiceRoll6();
-            }
-            if (D8.IsChecked == true)
-            {
-                DiceRoll8();
-            }
-            if (D10.IsChecked == true)
-            {
-                DiceRoll10();
-            }
-            if (D12.IsChecked == true)
-            {
-                DiceRoll12();
-            }
-            if (D20.IsChecked == true)
-            {
-                DiceRoll20();
-             
-            }
-            if (D100.IsChecked == true)
-            {
-                txtD100.Text = RandomNumber(1, 101).ToString();
-            }
-        }
-
-        #endregion
+        // Roll Dice
+        #region Dice Roll
 
         private void btnDiceRoll_Click(object sender, RoutedEventArgs e)
         {
-            if(cmboxDice.Text == "D4")
+            if (cmboxDice.Text == "D4")
             {
                 DiceRoll4();
             }
@@ -335,8 +303,15 @@ namespace FightClub
             {
                 DiceRoll100();
             }
-            
+
         }
+        #endregion
+
+
+        #endregion
+
+
+
     }
 }
 
