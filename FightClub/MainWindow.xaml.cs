@@ -28,9 +28,7 @@ namespace FightClub
         List<Hero> dead = new List<Hero>();
         List<Character> selectedCharacter = new List<Character>();
 
-        /*Varibles*/
-        int damage;
-        int heal;
+   
 
         public MainWindow()
         {
@@ -92,11 +90,34 @@ namespace FightClub
 
             lbxDeath.ItemsSource = null;
             lbxDeath.ItemsSource = dead;
-
-           
+        }
+        //Moves Hero from combat list to dead list
+        private void KillHero(Hero selectedHero)
+        {
+            combat.Remove(selectedHero);
+            dead.Add(selectedHero);
+        }
+        //Moves Hero from dead list to combat list
+        private void ReviveHero(Hero selectedDeadHero)
+        {
+            dead.Remove(selectedDeadHero);
+            combat.Add(selectedDeadHero);
+            selectedDeadHero.HP = 1;
+        }
+        //Remove Character from combat list
+        private void KillCharacter(Character selectedCharacter)
+        {
+            combat.Remove(selectedCharacter);
+          
+        }
+        //Removes all text and images from character infomation
+        private void ResetCharacterInfomation()
+        {
+            txtClass.Text = null;
+            txtDescription.Text = null;
+            ImgClass.Source = null;
 
         }
-
         #region Dice Roll Method
         //Delays to simulate a live dice roll
         private async void DiceRoll4()
@@ -235,43 +256,40 @@ namespace FightClub
 
         }
 
-        /*Edit HP of Characters*/
+        /*Buttons*/
+
         // - HP
         private void btnDamage_Click(object sender, RoutedEventArgs e)
         {
             Character selectedCharacter = lbxCombat.SelectedItem as Character;
             Hero selectedHero = lbxCombat.SelectedItem as Hero;
-            //Null Check
+
+            //Null Character Check
             if (selectedCharacter != null)
             {
-                damage = int.Parse(txtbxDamage.Text);
-
+                int damage = int.Parse(txtbxDamage.Text);
                 selectedCharacter.HP = (selectedCharacter.HP - damage); //HP - damagae
 
                 //Checks if character dies and moves them to dead listbox
                 if (selectedCharacter.HP <= 0)
                 {
-                    combat.Remove(selectedCharacter);
-                    txtClass.Text = null;
-                    txtDescription.Text = null;
-                    ImgClass.Source = null;
-
-
+                    KillCharacter(selectedCharacter);
+                    ResetCharacterInfomation();
                 }
                 RefreshScreen();
             }
+            //Null Hero Check
             if (selectedHero != null)
             {
                 if (selectedHero.HP <= 0)
                 {
-                    combat.Remove(selectedHero);
-                    dead.Add(selectedHero);
-
-
+                    KillHero(selectedHero);
+                    ResetCharacterInfomation();
                 }
                 RefreshScreen();
             }
         }
+
         // + HP
         private void btnHeal_Click(object sender, RoutedEventArgs e)
         {
@@ -279,7 +297,7 @@ namespace FightClub
             //Null Check
             if (selectedCharacter != null)
             {
-                heal = int.Parse(txtbxHeal.Text);
+               int heal = int.Parse(txtbxHeal.Text);
 
                 selectedCharacter.HP = (selectedCharacter.HP + heal); //HP + heal
 
@@ -287,6 +305,23 @@ namespace FightClub
 
             }
 
+        }
+        //Revive dead Hero
+        private void btnRevive_Click(object sender, RoutedEventArgs e)
+        {
+            Hero selectedDeadHero = lbxDeath.SelectedItem as Hero;
+
+            if (selectedDeadHero != null)
+            {
+               
+                ReviveHero(selectedDeadHero);
+              
+                //Resorts the new combat listbox
+                combat.Sort();
+                combat.Reverse();
+
+            }
+            RefreshScreen();
         }
         // Roll Dice
         #region Dice Roll
@@ -330,23 +365,7 @@ namespace FightClub
 
         #endregion
 
-        private void btnRevive_Click(object sender, RoutedEventArgs e)
-        {
-            Hero selectedDeadHero = lbxDeath.SelectedItem as Hero;
-
-            if (selectedDeadHero != null)
-            {
-                
-                dead.Remove(selectedDeadHero);
-                combat.Add(selectedDeadHero);
-                selectedDeadHero.HP = 1;
-
-                combat.Sort();
-                combat.Reverse();
-               
-            }
-            RefreshScreen();
-        }
+     
     }
 }
 

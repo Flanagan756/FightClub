@@ -10,10 +10,10 @@
     <Window.Resources>
         <DataTemplate x:Key="combatTemplate">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{Binding Path= Name}" Width="200"/>
-                <TextBlock Text="{Binding Path= AC}" Width="51"/>
-                <TextBlock Text="{Binding Path= HP}" Width="51"/>
-                <TextBlock Text="{Binding Path= Dex}" Width="51"/>
+                <TextBlock Text="{Binding Path= Name}" Width="170"/>
+                <TextBlock Text="{Binding Path= AC}" Width="51" TextAlignment="Center"/>
+                <TextBlock Text="{Binding Path= HP}" Width="51" TextAlignment="Center"/>
+                <TextBlock Text="{Binding Path= Dex}" Width="51" TextAlignment="Center"/>
             </StackPanel>
         </DataTemplate>
         <DataTemplate x:Key="deadTemplate">
@@ -26,35 +26,33 @@
         <TabItem Name="Ex1" Header="Combat" Width="60">
             <Grid>
                 <Grid.ColumnDefinitions>
-
-
-                    <ColumnDefinition Width="117*"/>
-                    <ColumnDefinition Width="376*"/>
-
-
+                    <ColumnDefinition Width="30*"/>
+                    <ColumnDefinition Width="50*"/>
+                    <ColumnDefinition Width="20*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="10*"/>
-                    <RowDefinition Height="90*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="6*"/>
+                    <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
-                <Label Content="Dead Heros" HorizontalAlignment="Left" Margin="683,25,0,0" VerticalAlignment="Top" Width="102" Grid.Column="1" FontSize="16"/>
-                <Label Content="Combat" HorizontalAlignment="Left" Height="29" Margin="10,25,0,0" VerticalAlignment="Top" Width="78" FontSize="16"/>
-                <Label Content="Character Info" HorizontalAlignment="Left" Height="29" Margin="109,25,0,0" VerticalAlignment="Top" Width="120" FontSize="16" Grid.Column="1"/>
-                <ListBox x:Name="lbxCombat" ItemTemplate="{StaticResource combatTemplate}" HorizontalAlignment="Left" Height="315" Margin="10,50,0,0" VerticalAlignment="Top" Width="346" SelectionChanged="ListBox_SelectionChanged" Grid.Row="1" Background="White" Grid.ColumnSpan="2" Foreground="Black"/>
-                <ListBox x:Name="lbxDeath" ItemTemplate="{StaticResource deadTemplate}" HorizontalAlignment="Left" Height="315" Margin="683,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="178" Grid.Column="1" Background="White" Foreground="Black"/>
-                <TextBox x:Name="txtbxDamage" HorizontalAlignment="Left" Height="23" Margin="10,417,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="59" RenderTransformOrigin="0.179,-0.385" Foreground="White"/>
-                <TextBox x:Name="txtbxHeal" HorizontalAlignment="Left" Height="23" Margin="122,417,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="59" RenderTransformOrigin="0.179,-0.385" Foreground="White"/>
-                <TextBlock x:Name="txtDescription" HorizontalAlignment="Left" Margin="394,78,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Height="287" Width="259" Grid.Row="1" Foreground="White" Grid.Column="1"/>
-                <TextBlock x:Name="txtClass" HorizontalAlignment="Left" Margin="394,50,0,0" TextWrapping="Wrap" Text="Class" VerticalAlignment="Top" Height="23" Width="96" Foreground="White" Grid.Column="1" Grid.Row="1" FontSize="14" FontWeight="Bold"/>
-                <Button x:Name="btnDamage" Content="Damage" HorizontalAlignment="Left" Margin="10,445,0,0" Grid.Row="1" VerticalAlignment="Top" Width="89" Height="32" Click="btnDamage_Click"/>
-                <Button x:Name="btnHeal" Content="Heal" HorizontalAlignment="Left" Margin="122,445,0,0" Grid.Row="1" VerticalAlignment="Top" Width="89" Height="32" Click="btnHeal_Click"/>
-                <TextBlock HorizontalAlignment="Left" Margin="10,32,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Grid.Row="1" Width="51" Foreground="White"/>
-                <TextBlock HorizontalAlignment="Left" Margin="218,32,0,0" TextWrapping="Wrap" Text="AC" VerticalAlignment="Top" Grid.Row="1" Width="21" Foreground="White"/>
-                <TextBlock HorizontalAlignment="Left" Margin="271,32,0,0" TextWrapping="Wrap" Text="HP" VerticalAlignment="Top" Grid.Row="1" Width="21" Foreground="White" Grid.ColumnSpan="2"/>
+                <Label Content="Dead Heros" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="0" FontSize="16"/>
+                <Label Content="Combat"  VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" FontSize="16"/>
+                <Label Content="Character Info"  VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="0" FontSize="16"/>
+                <ListBox x:Name="lbxCombat" ItemTemplate="{StaticResource combatTemplate}" SelectionChanged="ListBox_SelectionChanged" HorizontalAlignment="Left" Margin="5,10,0,0" Grid.Column="0" Grid.Row="1" Background="White" Foreground="Black"/>
+                <ListBox x:Name="lbxDeath" ItemTemplate="{StaticResource deadTemplate}" HorizontalAlignment="Left" Height="341" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="217" Grid.Column="2" Background="White" Foreground="Black"/>
+                <TextBox x:Name="txtbxDamage" HorizontalAlignment="Left" Height="23" Margin="10,50,0,0" Grid.Row="2" TextWrapping="Wrap" Text="0" TextAlignment="Center" VerticalAlignment="Top" Width="89" RenderTransformOrigin="0.179,-0.385" Foreground="White"/>
+                <TextBox x:Name="txtbxHeal" HorizontalAlignment="Left" Height="23" Margin="104,50,0,0" Grid.Row="2" TextWrapping="Wrap" Text="0" TextAlignment="Center" VerticalAlignment="Top" Width="89" RenderTransformOrigin="0.179,-0.385" Foreground="White"/>
+                <TextBlock x:Name="txtDescription" HorizontalAlignment="Left" Margin="345,38,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Height="323" Width="238" Grid.Row="1" Foreground="White" Grid.Column="1"/>
+                <TextBlock x:Name="txtClass" HorizontalAlignment="Left" Margin="345,10,0,0" TextWrapping="Wrap" Text="Class" VerticalAlignment="Top" Height="23" Width="96" Foreground="White" Grid.Column="1" FontSize="14" FontWeight="Bold" Grid.Row="1"/>
+                <Button x:Name="btnDamage" Content="Damage" HorizontalAlignment="Left" Margin="10,79,0,0" Grid.Row="2" VerticalAlignment="Top" Width="89" Height="32" Click="btnDamage_Click"/>
+                <Button x:Name="btnHeal" Content="Heal" HorizontalAlignment="Left" Margin="104,78,0,0" Grid.Row="2" VerticalAlignment="Top" Width="89" Height="32" Click="btnHeal_Click"/>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Name" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="0" Width="51" Foreground="White" Margin="5,0,0,0"/>
+                <TextBlock HorizontalAlignment="Left" Margin="204,44,0,0" TextWrapping="Wrap" Text="AC" VerticalAlignment="Top" Width="22" Foreground="White"/>
+                <TextBlock HorizontalAlignment="Left" Margin="254,44,0,0" TextWrapping="Wrap" Text="HP" VerticalAlignment="Top" Width="20" Foreground="White"/>
 
-                <TextBlock HorizontalAlignment="Left" Margin="41,32,0,0" TextWrapping="Wrap" Text="Dex" VerticalAlignment="Top" Grid.Row="1" Width="34" Foreground="White" Grid.Column="1"/>
-                <Image x:Name="ImgClass" Grid.Column="1" HorizontalAlignment="Left" Height="315" Margin="109,50,0,0" Grid.Row="1" VerticalAlignment="Top" Width="285"/>
-                <ComboBox x:Name="cmboxDice" HorizontalAlignment="Left" Margin="231,412,0,0" Grid.Row="1" VerticalAlignment="Top" Width="45" Foreground="White">
+                <TextBlock HorizontalAlignment="Left" Margin="302,44,0,0" TextWrapping="Wrap" Text="Dex" VerticalAlignment="Top" Width="28" Foreground="White"/>
+                <Image x:Name="ImgClass" Grid.Column="1" HorizontalAlignment="Left" Height="351" Margin="38,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="302"/>
+                <ComboBox x:Name="cmboxDice" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="46" Foreground="White" RenderTransformOrigin="0.577,1.214" Margin="198,45,0,0">
                     <ComboBoxItem>D4</ComboBoxItem>
                     <ComboBoxItem>D6</ComboBoxItem>
                     <ComboBoxItem>D8</ComboBoxItem>
@@ -63,9 +61,9 @@
                     <ComboBoxItem>D20</ComboBoxItem>
                     <ComboBoxItem>D100</ComboBoxItem>
                 </ComboBox>
-                <Button x:Name="btnDiceRoll" Content="Roll" HorizontalAlignment="Left" Margin="227,445,0,0" Grid.Row="1" VerticalAlignment="Top" Width="95" Grid.ColumnSpan="2" Click="btnDiceRoll_Click"/>
-                <TextBlock x:Name="txtblDiceResult" HorizontalAlignment="Left" Margin="5,413,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Foreground="White" FontSize="20" Width="36" RenderTransformOrigin="2.583,-0.111" Grid.Column="1"/>
-                <Button x:Name="btnRevive" Content="Revive" Grid.Column="1" HorizontalAlignment="Left" Margin="683,370,0,0" Grid.Row="1" VerticalAlignment="Top" Width="74" Click="btnRevive_Click"/>
+                <Button x:Name="btnDiceRoll" Content="Roll" HorizontalAlignment="Left" Margin="198,78,0,0" Grid.Row="2" VerticalAlignment="Top" Width="95" Click="btnDiceRoll_Click"/>
+                <TextBlock x:Name="txtblDiceResult" HorizontalAlignment="Left" Margin="249,47,0,0" Grid.Row="2" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Foreground="White" FontSize="20" Width="44" RenderTransformOrigin="2.583,-0.111" Text="0"/>
+                <Button x:Name="btnRevive" Content="Revive" Grid.Column="2" HorizontalAlignment="Left" Margin="90,78,0,0" Grid.Row="2" VerticalAlignment="Top" Width="74" Click="btnRevive_Click"/>
 
 
             </Grid>
