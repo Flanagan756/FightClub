@@ -25,7 +25,7 @@ namespace FightClub
     {
         /*Lists*/
         List<Character> combat = new List<Character>();
-        List<string> dead = new List<string>();
+        List<Hero> dead = new List<Hero>();
         List<Character> selectedCharacter = new List<Character>();
 
         /*Varibles*/
@@ -83,7 +83,7 @@ namespace FightClub
             Random random = new Random();
             return random.Next(min, max);
         }
-        //Referesh Screen for upadting data
+        //Referesh Screen for updating data
         private void RefreshScreen()
         {
             //Rereshes the screen
@@ -92,6 +92,8 @@ namespace FightClub
 
             lbxDeath.ItemsSource = null;
             lbxDeath.ItemsSource = dead;
+
+           
 
         }
 
@@ -163,8 +165,7 @@ namespace FightClub
         {
             Character selectedCharacter = lbxCombat.SelectedItem as Character;
             Hero selectedHero = lbxCombat.SelectedItem as Hero;
-
-           
+            Hero selectedDeadHero = lbxDeath.SelectedItem as Hero;
 
             if (selectedCharacter != null) //Checks to see if the selected charcter isn't equal to null
             {
@@ -176,11 +177,11 @@ namespace FightClub
             }
             if (selectedHero != null) //Checks to see if the selected character isn't null and is of the subclass Hero
             {
+                
                 //Display the selected Hero's class property and the discription in the discription text box
                 txtClass.Text = selectedHero.PlayerClass.ToString();
                 txtDescription.Text = selectedHero.Description;
                 //Dispalys image within the ImgClass depending on the hero's class which is stored on a AWS S3
-                #region Class Image
                 if (selectedHero.PlayerClass == Classes.Barbarian )
                 {
                     ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Barbarian.png"));
@@ -229,18 +230,17 @@ namespace FightClub
                 {
                     ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Wizard.png"));
                 }
-                #endregion
 
             }
 
         }
 
         /*Edit HP of Characters*/
-
         // - HP
         private void btnDamage_Click(object sender, RoutedEventArgs e)
         {
             Character selectedCharacter = lbxCombat.SelectedItem as Character;
+            Hero selectedHero = lbxCombat.SelectedItem as Hero;
             //Null Check
             if (selectedCharacter != null)
             {
@@ -252,7 +252,21 @@ namespace FightClub
                 if (selectedCharacter.HP <= 0)
                 {
                     combat.Remove(selectedCharacter);
-                    dead.Add(selectedCharacter.Name);
+                    txtClass.Text = null;
+                    txtDescription.Text = null;
+                    ImgClass.Source = null;
+
+
+                }
+                RefreshScreen();
+            }
+            if (selectedHero != null)
+            {
+                if (selectedHero.HP <= 0)
+                {
+                    combat.Remove(selectedHero);
+                    dead.Add(selectedHero);
+
 
                 }
                 RefreshScreen();
@@ -316,9 +330,23 @@ namespace FightClub
 
         #endregion
 
-    
+        private void btnRevive_Click(object sender, RoutedEventArgs e)
+        {
+            Hero selectedDeadHero = lbxDeath.SelectedItem as Hero;
 
-       
+            if (selectedDeadHero != null)
+            {
+                
+                dead.Remove(selectedDeadHero);
+                combat.Add(selectedDeadHero);
+                selectedDeadHero.HP = 1;
+
+                combat.Sort();
+                combat.Reverse();
+               
+            }
+            RefreshScreen();
+        }
     }
 }
 
