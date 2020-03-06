@@ -91,12 +91,17 @@
                 <TextBlock HorizontalAlignment="Left" Margin="0,209,0,0" TextWrapping="Wrap" Text="Dex" VerticalAlignment="Top" Height="16" Width="57" Foreground="White" Grid.Row="1"/>
                 <TextBlock HorizontalAlignment="Left" Margin="23,209,0,0" TextWrapping="Wrap" Text="Dex" VerticalAlignment="Top" Height="16" Width="57" Foreground="White" Grid.Row="1" Grid.Column="1"/>
                 <TextBlock HorizontalAlignment="Left" Margin="10,281,0,0" TextWrapping="Wrap" Text="Class" VerticalAlignment="Top" Height="16" Width="57" Foreground="White" Grid.Row="1"/>
-                <TextBox x:Name="txtbxCreateName" HorizontalAlignment="Left" Height="22" Margin="106,20,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Foreground="White"/>
-                <TextBox x:Name="txtbxCreateHP" HorizontalAlignment="Left" Height="24" Margin="106,76,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Foreground="White"/>
-                <TextBox x:Name="txtbxCreateAC" HorizontalAlignment="Left" Height="23" Margin="106,147,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Foreground="White"/>
-                <TextBox x:Name="txtbxCreateDex" HorizontalAlignment="Left" Height="23" Margin="106,209,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Foreground="White"/>
-                <Button Content="Create Hero" HorizontalAlignment="Left" Margin="76,385,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150"/>
-                <ComboBox HorizontalAlignment="Left" Margin="106,269,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" Foreground="White">
+                <TextBox x:Name="txtbxCreateHeroName" HorizontalAlignment="Left" Height="22" Margin="106,20,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Foreground="White"/>
+                <TextBox x:Name="txtbxCreateHeroHP" HorizontalAlignment="Left" Height="24" Margin="106,76,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Foreground="White"/>
+                <TextBox x:Name="txtbxCreateHeroAC" HorizontalAlignment="Left" Height="23" Margin="106,147,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Foreground="White"/>
+                <TextBox x:Name="txtbxCreateHeroDex" HorizontalAlignment="Left" Height="23" Margin="106,209,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Foreground="White"/>
+                <Button x:Name="btnCreateHero" Content="Create Hero" HorizontalAlignment="Left" Margin="76,385,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150" Click="btnCreateHero_Click"/>
+                <TextBox x:Name="txtbxCreateCharacterName" HorizontalAlignment="Left" Height="22" Margin="85,20,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Foreground="White" Grid.Column="1"/>
+                <TextBox x:Name="txtbxCreateCharacterHP" HorizontalAlignment="Left" Height="24" Margin="85,76,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Foreground="White" Grid.Column="1"/>
+                <TextBox x:Name="txtbxCreateCharacterAC" HorizontalAlignment="Left" Height="23" Margin="85,147,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Foreground="White" Grid.Column="1"/>
+                <TextBox x:Name="txtbxCreateCharaacterDex" HorizontalAlignment="Left" Height="23" Margin="85,209,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Foreground="White" Grid.Column="1"/>
+                <Button Content="Create Character" HorizontalAlignment="Left" Margin="55,385,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150" Grid.Column="1"/>
+                <ComboBox x:Name="cmboxCreateHeroClass" HorizontalAlignment="Left" Margin="106,269,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" Foreground="White">
                     <ComboBoxItem>Barbarian</ComboBoxItem>
                     <ComboBoxItem>Bard</ComboBoxItem>
                     <ComboBoxItem>Cleric</ComboBoxItem>
@@ -110,7 +115,7 @@
                     <ComboBoxItem>Wizard</ComboBoxItem>
                 </ComboBox>
                 <Image x:Name="imgDefaultHero" Source="https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/258/420/618/636271801914013762.png" HorizontalAlignment="Left" Height="413" Margin="298,20,0,0" Grid.Row="1" VerticalAlignment="Top" Width="264"/>
-                <Image x:Name="imgDefaultCharacter" Source="https://media.wizards.com/2014/images/dnd/newtodnd/beholder_1.png" HorizontalAlignment="Left" Height="360" Margin="183,13,0,0" VerticalAlignment="Top" Width="400" Grid.Column="1" Grid.Row="1"/>
+                <Image x:Name="imgDefaultCharacter" Source="https://media.wizards.com/2014/images/dnd/newtodnd/beholder_1.png" HorizontalAlignment="Left" Height="404" Margin="210,13,0,0" VerticalAlignment="Top" Width="373" Grid.Column="1" Grid.Row="1"/>
 
 
 

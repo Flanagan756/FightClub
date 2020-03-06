@@ -361,11 +361,43 @@ namespace FightClub
 
 
 
-        #endregion
+
 
         #endregion
 
-     
+        #endregion
+
+        private void btnCreateHero_Click(object sender, RoutedEventArgs e)
+        {
+            string classType;
+            switch(cmboxCreateHeroClass.SelectedItem.ToString())
+            {
+                case "Barbarian":
+                    classType = "Barbarian";
+                        break;
+                default:
+                    classType = "Fighter";
+                    break;
+
+            }
+
+            if ((txtbxCreateHeroName != null)&&(txtbxCreateHeroHP != null) &&(txtbxCreateHeroAC != null)&&(classType == "Barbarian"))
+            {
+         
+                Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text),int.Parse(txtbxCreateHeroHP.Text), Classes.Barbarian,int.Parse(txtbxCreateHeroAC.Text));
+                combat.Add(createdHero);
+                RefreshScreen();
+            }
+            else
+            {
+
+                Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text), int.Parse(txtbxCreateHeroHP.Text), Classes.Figther, int.Parse(txtbxCreateHeroAC.Text));
+                combat.Add(createdHero);
+                RefreshScreen();
+            }
+           
+           
+        }
     }
 }
 
