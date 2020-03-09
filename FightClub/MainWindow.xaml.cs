@@ -369,34 +369,55 @@ namespace FightClub
 
         private void btnCreateHero_Click(object sender, RoutedEventArgs e)
         {
-            string classType;
-            switch(cmboxCreateHeroClass.SelectedItem.ToString())
-            {
-                case "Barbarian":
-                    classType = "Barbarian";
-                        break;
-                default:
-                    classType = "Fighter";
-                    break;
-
-            }
-
-            if ((txtbxCreateHeroName != null)&&(txtbxCreateHeroHP != null) &&(txtbxCreateHeroAC != null)&&(classType == "Barbarian"))
+           
+            if ((txtbxCreateHeroName != null)&&(txtbxCreateHeroAC != null) && (txtbxCreateHeroHP != null) && (cmboxCreateHeroClass.Text == "Barbarian")&&(txtbxCreateHeroDex != null))
             {
          
-                Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text),int.Parse(txtbxCreateHeroHP.Text), Classes.Barbarian,int.Parse(txtbxCreateHeroAC.Text));
+                Hero createdHero = new Hero(txtbxCreateHeroName.Text,int.Parse(txtbxCreateHeroAC.Text),int.Parse(txtbxCreateHeroHP.Text),Classes.Barbarian,int.Parse(txtbxCreateHeroDex.Text));
+                combat.Add(createdHero);
+                RefreshScreen();
+            }
+            if ((txtbxCreateHeroName != null) && (txtbxCreateHeroAC != null) && (txtbxCreateHeroHP != null) && (cmboxCreateHeroClass.Text == "Bard") && (txtbxCreateHeroDex != null))
+            {
+
+                Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text), int.Parse(txtbxCreateHeroHP.Text), Classes.Bard, int.Parse(txtbxCreateHeroDex.Text));
+                combat.Add(createdHero);
+                RefreshScreen();
+            }
+            if ((txtbxCreateHeroName != null) && (txtbxCreateHeroAC != null) && (txtbxCreateHeroHP != null) && (cmboxCreateHeroClass.Text == "Druid") && (txtbxCreateHeroDex != null))
+            {
+
+                Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text), int.Parse(txtbxCreateHeroHP.Text), Classes.Druid, int.Parse(txtbxCreateHeroDex.Text));
+                combat.Add(createdHero);
+                RefreshScreen();
+            }
+            if ((txtbxCreateHeroName != null) && (txtbxCreateHeroAC != null) && (txtbxCreateHeroHP != null) && (cmboxCreateHeroClass.Text == "Fighetr") && (txtbxCreateHeroDex != null))
+            {
+
+                Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text), int.Parse(txtbxCreateHeroHP.Text), Classes.Figther, int.Parse(txtbxCreateHeroDex.Text));
+                combat.Add(createdHero);
+                RefreshScreen();
+            }
+            if ((txtbxCreateHeroName != null) && (txtbxCreateHeroAC != null) && (txtbxCreateHeroHP != null) && (cmboxCreateHeroClass.Text == "Paladin") && (txtbxCreateHeroDex != null))
+            {
+
+                Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text), int.Parse(txtbxCreateHeroHP.Text), Classes.Paladin, int.Parse(txtbxCreateHeroDex.Text));
                 combat.Add(createdHero);
                 RefreshScreen();
             }
             else
             {
-
-                Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text), int.Parse(txtbxCreateHeroHP.Text), Classes.Figther, int.Parse(txtbxCreateHeroAC.Text));
+                Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text), int.Parse(txtbxCreateHeroHP.Text), Classes.Paladin, int.Parse(txtbxCreateHeroDex.Text));
                 combat.Add(createdHero);
                 RefreshScreen();
             }
-           
-           
+
+
+
+
+
+
+
         }
     }
 }
