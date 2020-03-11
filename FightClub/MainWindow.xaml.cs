@@ -369,93 +369,101 @@ namespace FightClub
 
         private void btnCreateHero_Click(object sender, RoutedEventArgs e)
         {
-           
-            if ((txtbxCreateHeroName != null)&&(txtbxCreateHeroAC != null) && (txtbxCreateHeroHP != null) && (cmboxCreateHeroClass.Text == "Barbarian")&&(txtbxCreateHeroDex != null))
-            {
-         
-                Hero createdHero = new Hero(txtbxCreateHeroName.Text,int.Parse(txtbxCreateHeroAC.Text),int.Parse(txtbxCreateHeroHP.Text),Classes.Barbarian,int.Parse(txtbxCreateHeroDex.Text));
-                combat.Add(createdHero);
-                RefreshScreen();
-            }
-
-            if ((txtbxCreateHeroName != null) && (txtbxCreateHeroAC != null) && (txtbxCreateHeroHP != null) && (cmboxCreateHeroClass.Text == "Bard") && (txtbxCreateHeroDex != null))
+            if ((txtbxCreateHeroName.Text != "") && (txtbxCreateHeroAC.Text != "") && (txtbxCreateHeroHP.Text != "") && (txtbxCreateHeroDex.Text != ""))
             {
 
-                Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text), int.Parse(txtbxCreateHeroHP.Text), Classes.Bard, int.Parse(txtbxCreateHeroDex.Text));
-                combat.Add(createdHero);
-                RefreshScreen();
+
+                if (cmboxCreateHeroClass.Text == "Barbarian")
+                {
+
+                    Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text), int.Parse(txtbxCreateHeroHP.Text), Classes.Barbarian, int.Parse(txtbxCreateHeroDex.Text));
+                    combat.Add(createdHero);
+                    RefreshScreen();
+                }
+                if (cmboxCreateHeroClass.Text == "Bard")
+                {
+
+                    Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text), int.Parse(txtbxCreateHeroHP.Text), Classes.Bard, int.Parse(txtbxCreateHeroDex.Text));
+                    combat.Add(createdHero);
+                    RefreshScreen();
+                }
+                if (cmboxCreateHeroClass.Text == "Cleric")
+                {
+
+                    Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text), int.Parse(txtbxCreateHeroHP.Text), Classes.Cleric, int.Parse(txtbxCreateHeroDex.Text));
+                    combat.Add(createdHero);
+                    RefreshScreen();
+                }
+                if (cmboxCreateHeroClass.Text == "Druid")
+                {
+
+                    Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text), int.Parse(txtbxCreateHeroHP.Text), Classes.Druid, int.Parse(txtbxCreateHeroDex.Text));
+                    combat.Add(createdHero);
+                    RefreshScreen();
+                }
+                if (cmboxCreateHeroClass.Text == "Fighter")
+                {
+
+                    Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text), int.Parse(txtbxCreateHeroHP.Text), Classes.Figther, int.Parse(txtbxCreateHeroDex.Text));
+                    combat.Add(createdHero);
+                    RefreshScreen();
+                }
+                if (cmboxCreateHeroClass.Text == "Paladin")
+                {
+
+                    Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text), int.Parse(txtbxCreateHeroHP.Text), Classes.Paladin, int.Parse(txtbxCreateHeroDex.Text));
+                    combat.Add(createdHero);
+                    RefreshScreen();
+                }
+                if (cmboxCreateHeroClass.Text == "Ranger")
+                {
+
+                    Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text), int.Parse(txtbxCreateHeroHP.Text), Classes.Ranger, int.Parse(txtbxCreateHeroDex.Text));
+                    combat.Add(createdHero);
+                    RefreshScreen();
+                }
+                if (cmboxCreateHeroClass.Text == "Rouge")
+                {
+
+                    Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text), int.Parse(txtbxCreateHeroHP.Text), Classes.Rouge, int.Parse(txtbxCreateHeroDex.Text));
+                    combat.Add(createdHero);
+                    RefreshScreen();
+                }
+                if (cmboxCreateHeroClass.Text == "Sorcerer")
+                {
+
+                    Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text), int.Parse(txtbxCreateHeroHP.Text), Classes.Sorcerer, int.Parse(txtbxCreateHeroDex.Text));
+                    combat.Add(createdHero);
+                    RefreshScreen();
+                }
+                if ((txtbxCreateHeroName != null) && (txtbxCreateHeroAC != null) && (txtbxCreateHeroHP != null) && (cmboxCreateHeroClass.Text == "Sorcerer") && (txtbxCreateHeroDex != null))
+                {
+
+                    Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text), int.Parse(txtbxCreateHeroHP.Text), Classes.Sorcerer, int.Parse(txtbxCreateHeroDex.Text));
+                    combat.Add(createdHero);
+                    RefreshScreen();
+                }
+                if (cmboxCreateHeroClass.Text == "Warlock")
+                {
+
+                    Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text), int.Parse(txtbxCreateHeroHP.Text), Classes.Warlock, int.Parse(txtbxCreateHeroDex.Text));
+                    combat.Add(createdHero);
+                    RefreshScreen();
+                }
+                if (cmboxCreateHeroClass.Text == "Wizard")
+                {
+
+                    Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text), int.Parse(txtbxCreateHeroHP.Text), Classes.Wizard, int.Parse(txtbxCreateHeroDex.Text));
+                    combat.Add(createdHero);
+                    RefreshScreen();
+
+                }
             }
-            if ((txtbxCreateHeroName != null) && (txtbxCreateHeroAC != null) && (txtbxCreateHeroHP != null) && (cmboxCreateHeroClass.Text == "Cleric") && (txtbxCreateHeroDex != null))
+            else
             {
-
-                Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text), int.Parse(txtbxCreateHeroHP.Text), Classes.Cleric, int.Parse(txtbxCreateHeroDex.Text));
-                combat.Add(createdHero);
-                RefreshScreen();
+                MessageBox.Show("Field empty.", "Error");
             }
-            if ((txtbxCreateHeroName != null) && (txtbxCreateHeroAC != null) && (txtbxCreateHeroHP != null) && (cmboxCreateHeroClass.Text == "Druid") && (txtbxCreateHeroDex != null))
-            {
-
-                Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text), int.Parse(txtbxCreateHeroHP.Text), Classes.Druid, int.Parse(txtbxCreateHeroDex.Text));
-                combat.Add(createdHero);
-                RefreshScreen();
-            }
-            if ((txtbxCreateHeroName != null) && (txtbxCreateHeroAC != null) && (txtbxCreateHeroHP != null) && (cmboxCreateHeroClass.Text == "Fighetr") && (txtbxCreateHeroDex != null))
-            {
-
-                Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text), int.Parse(txtbxCreateHeroHP.Text), Classes.Figther, int.Parse(txtbxCreateHeroDex.Text));
-                combat.Add(createdHero);
-                RefreshScreen();
-            }
-            if ((txtbxCreateHeroName != null) && (txtbxCreateHeroAC != null) && (txtbxCreateHeroHP != null) && (cmboxCreateHeroClass.Text == "Paladin") && (txtbxCreateHeroDex != null))
-            {
-
-                Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text), int.Parse(txtbxCreateHeroHP.Text), Classes.Paladin, int.Parse(txtbxCreateHeroDex.Text));
-                combat.Add(createdHero);
-                RefreshScreen();
-            }
-            if ((txtbxCreateHeroName != null) && (txtbxCreateHeroAC != null) && (txtbxCreateHeroHP != null) && (cmboxCreateHeroClass.Text == "Ranger") && (txtbxCreateHeroDex != null))
-            {
-
-                Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text), int.Parse(txtbxCreateHeroHP.Text), Classes.Ranger, int.Parse(txtbxCreateHeroDex.Text));
-                combat.Add(createdHero);
-                RefreshScreen();
-            }
-            if ((txtbxCreateHeroName != null) && (txtbxCreateHeroAC != null) && (txtbxCreateHeroHP != null) && (cmboxCreateHeroClass.Text == "Rouge") && (txtbxCreateHeroDex != null))
-            {
-
-                Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text), int.Parse(txtbxCreateHeroHP.Text), Classes.Rouge, int.Parse(txtbxCreateHeroDex.Text));
-                combat.Add(createdHero);
-                RefreshScreen();
-            }
-             if ((txtbxCreateHeroName != null) && (txtbxCreateHeroAC != null) && (txtbxCreateHeroHP != null) && (cmboxCreateHeroClass.Text == "Sorcerer") && (txtbxCreateHeroDex != null))
-             {
-
-                Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text), int.Parse(txtbxCreateHeroHP.Text), Classes.Sorcerer, int.Parse(txtbxCreateHeroDex.Text));
-                combat.Add(createdHero);
-                RefreshScreen();
-             }
-            if ((txtbxCreateHeroName != null) && (txtbxCreateHeroAC != null) && (txtbxCreateHeroHP != null) && (cmboxCreateHeroClass.Text == "Sorcerer") && (txtbxCreateHeroDex != null))
-            {
-
-                Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text), int.Parse(txtbxCreateHeroHP.Text), Classes.Sorcerer, int.Parse(txtbxCreateHeroDex.Text));
-                combat.Add(createdHero);
-                RefreshScreen();
-            }
-            if ((txtbxCreateHeroName != null) && (txtbxCreateHeroAC != null) && (txtbxCreateHeroHP != null) && (cmboxCreateHeroClass.Text == "Warlock") && (txtbxCreateHeroDex != null))
-            {
-
-                Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text), int.Parse(txtbxCreateHeroHP.Text), Classes.Warlock, int.Parse(txtbxCreateHeroDex.Text));
-                combat.Add(createdHero);
-                RefreshScreen();
-            }
-            if ((txtbxCreateHeroName != null) && (txtbxCreateHeroAC != null) && (txtbxCreateHeroHP != null) && (cmboxCreateHeroClass.Text == "Wizard") && (txtbxCreateHeroDex != null))
-            {
-
-                Hero createdHero = new Hero(txtbxCreateHeroName.Text, int.Parse(txtbxCreateHeroAC.Text), int.Parse(txtbxCreateHeroHP.Text), Classes.Wizard, int.Parse(txtbxCreateHeroDex.Text));
-                combat.Add(createdHero);
-                RefreshScreen();
-                
-            }
+            
             combat.Sort();
             combat.Reverse();
             RefreshScreen();
