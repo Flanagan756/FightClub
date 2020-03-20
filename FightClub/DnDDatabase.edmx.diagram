@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f18cea983bca45fb8b5e2fe0ec41f6f5" Name="Diagram1">
+        <EntityTypeShape EntityType="DnDInfoModel1.Class" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DnDInfoModel1.Enemy" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DnDInfoModel1.PreMadeHero" Width="1.5" PointX="6" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DnDInfoModel1.Spell" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DnDInfoModel1.Weapon" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="DnDInfoModel1.FK_ClassHero" ManuallyRouted="false" />
+        <AssociationConnector Association="DnDInfoModel1.FK_EnemySpell" ManuallyRouted="false" />
+        <AssociationConnector Association="DnDInfoModel1.FK_EnemyWeapon" ManuallyRouted="false" />
+        <AssociationConnector Association="DnDInfoModel1.FK_HeroSpell" ManuallyRouted="false" />
+        <AssociationConnector Association="DnDInfoModel1.FK_HeroWeapon" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

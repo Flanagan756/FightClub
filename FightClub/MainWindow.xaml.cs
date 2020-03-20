@@ -28,7 +28,8 @@ namespace FightClub
         List<Hero> dead = new List<Hero>();
         List<Character> selectedCharacter = new List<Character>();
 
-   
+        DnDInfoEntities1 db = new DnDInfoEntities1();
+        
 
         public MainWindow()
         {
@@ -72,6 +73,22 @@ namespace FightClub
             lbxCombat.ItemsSource = combat;
             lbxDeath.ItemsSource = dead;
             #endregion
+        }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            //Put the Database PremadeHeros in the listbox
+            var heroQuery = from h in db.PreMadeHeroes
+                            join w in db.Weapons on h.Weapon_WeaponId equals w.WeaponId
+                            select new
+                            {
+                                h.Name,
+                                h.HP,
+                                Weapon = w.Name,
+                                h.HeroImage
+                            };
+
+            
+            lbxPreMadeHeros.ItemsSource = heroQuery.ToList();
         }
 
         #region Methods
@@ -467,14 +484,10 @@ namespace FightClub
             combat.Sort();
             combat.Reverse();
             RefreshScreen();
-
-
-
-
-
-
-
         }
+      
+
+       
     }
 }
 

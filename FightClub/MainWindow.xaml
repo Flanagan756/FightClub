@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FightClub"
         mc:Ignorable="d"
-        Title="DnD Fight Club" Height="600" Width="1200" Background="White">
+        Title="DnD Fight Club" Height="600" Width="1200" Background="White" Loaded="Window_Loaded">
 
     <Window.Resources>
         <DataTemplate x:Key="combatTemplate">
@@ -19,6 +19,12 @@
         <DataTemplate x:Key="deadTemplate">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="{Binding Path= Name}" Width="200"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="PreMadeHeroTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Path= Name}" Width="170"/>
+                <Image Source="{Binding Path= HeroImage}" Width="150" Height="300" />
             </StackPanel>
         </DataTemplate>
     </Window.Resources>
@@ -123,6 +129,19 @@
 
             </Grid>
         </TabItem>
-
+        <TabItem Name="Ex3" Header="Pre-Made Heros" Width="110">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="90*"/>
+                    <RowDefinition Height="10*"/>
+                </Grid.RowDefinitions>
+                <ListBox x:Name="lbxPreMadeHeros" ItemTemplate="{StaticResource PreMadeHeroTemplate}" HorizontalAlignment="Left" Height="423" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="573" Background="White" Foreground="#DD000000"/>
+            </Grid>
+        </TabItem>
     </TabControl>
 </Window>
