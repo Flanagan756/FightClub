@@ -12,7 +12,7 @@ namespace FightClub
     using System;
     using System.Collections.Generic;
     
-    public partial class Enemy
+    public partial class NPC
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -20,11 +20,9 @@ namespace FightClub
         public string HP { get; set; }
         public string Dex { get; set; }
         public string Description { get; set; }
-        public string EnemyImage { get; set; }
-        public int Weapon_Id { get; set; }
-        public Nullable<int> Spell_Id { get; set; }
+        public string NPCImage { get; set; }
+        public Nullable<int> Weapon_Id { get; set; }
     
-        public virtual Spell Spell { get; set; }
         public virtual Weapon Weapon { get; set; }
     }
 }

@@ -17,17 +17,17 @@ namespace FightClub
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Class()
         {
-            this.Heroes = new HashSet<PreMadeHero>();
+            this.PreMadeHeroes = new HashSet<PreMadeHero>();
         }
     
-        public int ClassId { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
-        public string Decription { get; set; }
+        public string Description { get; set; }
         public string Role { get; set; }
         public string Difficulty { get; set; }
         public string ClassImage { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PreMadeHero> Heroes { get; set; }
+        public virtual ICollection<PreMadeHero> PreMadeHeroes { get; set; }
     }
 }

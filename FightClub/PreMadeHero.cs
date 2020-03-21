@@ -14,16 +14,16 @@ namespace FightClub
     
     public partial class PreMadeHero
     {
-        public int HeroId { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string AC { get; set; }
         public string HP { get; set; }
         public string Dex { get; set; }
         public string Description { get; set; }
         public string HeroImage { get; set; }
-        public int Weapon_WeaponId { get; set; }
-        public Nullable<int> Spell_SpellId { get; set; }
-        public int Class_ClassId { get; set; }
+        public int Class_Id { get; set; }
+        public int Weapon_Id { get; set; }
+        public Nullable<int> Spell_Id { get; set; }
     
         public virtual Class Class { get; set; }
         public virtual Spell Spell { get; set; }

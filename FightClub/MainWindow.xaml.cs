@@ -28,12 +28,18 @@ namespace FightClub
         List<Hero> dead = new List<Hero>();
         List<Character> selectedCharacter = new List<Character>();
 
-        DnDInfoEntities1 db = new DnDInfoEntities1();
+        PreMadeContentEntities db = new PreMadeContentEntities();
         
 
         public MainWindow()
         {
             InitializeComponent();
+
+            var query = from h in db.PreMadeHeroes
+                        select h;
+
+            lbxPreMadeHeros.ItemsSource = query.ToList();
+
 
             #region Create Characters
             //Create Enemies
@@ -74,22 +80,7 @@ namespace FightClub
             lbxDeath.ItemsSource = dead;
             #endregion
         }
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            //Put the Database PremadeHeros in the listbox
-            var heroQuery = from h in db.PreMadeHeroes
-                            join w in db.Weapons on h.Weapon_WeaponId equals w.WeaponId
-                            select new
-                            {
-                                h.Name,
-                                h.HP,
-                                Weapon = w.Name,
-                                h.HeroImage
-                            };
-
-            
-            lbxPreMadeHeros.ItemsSource = heroQuery.ToList();
-        }
+     
 
         #region Methods
         //Random Number Generator for dice
@@ -485,9 +476,26 @@ namespace FightClub
             combat.Reverse();
             RefreshScreen();
         }
-      
+        private void lbxPreMadeHeros_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Display album of selected band
+            PreMadeHero selectedPreMadeHero = lbxPreMadeHeros.SelectedItem as PreMadeHero;
 
-       
+            if (selectedPreMadeHero.Id != null)
+            {
+                int id = selectedPreMadeHero.Id;
+
+                string heroImg = selectedPreMadeHero.HeroImage;
+                string description = selectedPreMadeHero.Description;
+
+
+                imgPreMadeHero.Source = new BitmapImage(new Uri(heroImg));
+                txtblPreMadeHeroDescription.Text = description;
+            }
+        }
+
+
+
     }
 }
 

@@ -18,18 +18,20 @@ namespace FightClub
         public Weapon()
         {
             this.Enemies = new HashSet<Enemy>();
-            this.Heroes = new HashSet<PreMadeHero>();
+            this.NPCs = new HashSet<NPC>();
+            this.PreMadeHeroes = new HashSet<PreMadeHero>();
         }
     
-        public int WeaponId { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Type { get; set; }
         public string Dice { get; set; }
-        public string DamageMod { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Enemy> Enemies { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PreMadeHero> Heroes { get; set; }
+        public virtual ICollection<NPC> NPCs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PreMadeHero> PreMadeHeroes { get; set; }
     }
 }

@@ -13,10 +13,10 @@ namespace FightClub
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DnDInfoEntities1 : DbContext
+    public partial class PreMadeContentEntities : DbContext
     {
-        public DnDInfoEntities1()
-            : base("name=DnDInfoEntities1")
+        public PreMadeContentEntities()
+            : base("name=PreMadeContentEntities")
         {
         }
     
@@ -27,6 +27,7 @@ namespace FightClub
     
         public virtual DbSet<Class> Classes { get; set; }
         public virtual DbSet<Enemy> Enemies { get; set; }
+        public virtual DbSet<NPC> NPCs { get; set; }
         public virtual DbSet<PreMadeHero> PreMadeHeroes { get; set; }
         public virtual DbSet<Spell> Spells { get; set; }
         public virtual DbSet<Weapon> Weapons { get; set; }
