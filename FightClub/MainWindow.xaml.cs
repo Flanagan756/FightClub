@@ -28,11 +28,19 @@ namespace FightClub
         List<Hero> dead = new List<Hero>();
         List<Character> selectedCharacter = new List<Character>();
 
-   
+        PreMadeContentEntities db = new PreMadeContentEntities();
+
+
 
         public MainWindow()
         {
             InitializeComponent();
+
+            var query = from h in db.PreMadeHeroes
+                        select h;
+
+            lbxPreMadeHeros.ItemsSource = query.ToList();
+
 
             #region Create Characters
             //Create Enemies
@@ -108,7 +116,7 @@ namespace FightClub
         private void KillCharacter(Character selectedCharacter)
         {
             combat.Remove(selectedCharacter);
-          
+
         }
         //Removes all text and images from character infomation
         private void ResetCharacterInfomation()
@@ -194,16 +202,16 @@ namespace FightClub
                 txtClass.Text = "Enemy";
                 txtDescription.Text = selectedCharacter.Description;
                 ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Enemy.png"));
-                
+
             }
             if (selectedHero != null) //Checks to see if the selected character isn't null and is of the subclass Hero
             {
-                
+
                 //Display the selected Hero's class property and the discription in the discription text box
                 txtClass.Text = selectedHero.PlayerClass.ToString();
                 txtDescription.Text = selectedHero.Description;
                 //Dispalys image within the ImgClass depending on the hero's class which is stored on a AWS S3
-                if (selectedHero.PlayerClass == Classes.Barbarian )
+                if (selectedHero.PlayerClass == Classes.Barbarian)
                 {
                     ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Barbarian.png"));
                 }
@@ -297,7 +305,7 @@ namespace FightClub
             //Null Check
             if (selectedCharacter != null)
             {
-               int heal = int.Parse(txtbxHeal.Text);
+                int heal = int.Parse(txtbxHeal.Text);
 
                 selectedCharacter.HP = (selectedCharacter.HP + heal); //HP + heal
 
@@ -313,9 +321,9 @@ namespace FightClub
 
             if (selectedDeadHero != null)
             {
-               
+
                 ReviveHero(selectedDeadHero);
-              
+
                 //Resorts the new combat listbox
                 combat.Sort();
                 combat.Reverse();
@@ -463,7 +471,7 @@ namespace FightClub
             {
                 MessageBox.Show("Field empty.", "Error");
             }
-            
+
             combat.Sort();
             combat.Reverse();
             RefreshScreen();
@@ -474,6 +482,24 @@ namespace FightClub
 
 
 
+        }
+
+        private void lbxPreMadeHeros_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Display album of selected band
+            PreMadeHero selectedPreMadeHero = lbxPreMadeHeros.SelectedItem as PreMadeHero;
+
+            if (selectedPreMadeHero.Id != null)
+            {
+                int id = selectedPreMadeHero.Id;
+
+                string heroImg = selectedPreMadeHero.HeroImage;
+                string description = selectedPreMadeHero.Description;
+                
+
+                imgPreMadeHero.Source = new BitmapImage(new Uri(heroImg));
+                txtblPreMadeHeroDescription.Text = description;
+            }
         }
     }
 }
