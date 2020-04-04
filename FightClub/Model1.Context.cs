@@ -13,10 +13,10 @@ namespace FightClub
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PreMadeContentEntities : DbContext
+    public partial class PreMadeContentEntities2 : DbContext
     {
-        public PreMadeContentEntities()
-            : base("name=PreMadeContentEntities")
+        public PreMadeContentEntities2()
+            : base("name=PreMadeContentEntities2")
         {
         }
     

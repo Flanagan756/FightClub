@@ -340,7 +340,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="PreMadeContentEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="PreMadeContentEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Classes" EntityType="Self.Class" />
           <EntitySet Name="Enemies" EntityType="Self.Enemy" />
           <EntitySet Name="NPCs" EntityType="Self.NPC" />
@@ -377,7 +377,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PreMadeContentModelStoreContainer" CdmEntityContainer="PreMadeContentEntities">
+        <EntityContainerMapping StorageEntityContainer="PreMadeContentModelStoreContainer" CdmEntityContainer="PreMadeContentEntities2">
           <EntitySetMapping Name="Classes">
             <EntityTypeMapping TypeName="PreMadeContentModel.Class">
               <MappingFragment StoreEntitySet="Classes">

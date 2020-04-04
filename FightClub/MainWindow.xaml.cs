@@ -28,7 +28,7 @@ namespace FightClub
         List<Hero> dead = new List<Hero>();
         List<Character> selectedCharacter = new List<Character>();
 
-        PreMadeContentEntities db = new PreMadeContentEntities();
+        PreMadeContentEntities2 db = new PreMadeContentEntities2();
         
 
         public MainWindow()
