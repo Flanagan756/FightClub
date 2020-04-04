@@ -27,7 +27,9 @@ namespace FightClub
         List<Character> combat = new List<Character>();
         List<Hero> dead = new List<Hero>();
         List<Character> selectedCharacter = new List<Character>();
+        List<PreMadeHero> preMadeHero = new List<PreMadeHero>();
 
+        //Connects the PremadeHeros database
         Entities db = new Entities();
         
 
@@ -38,7 +40,7 @@ namespace FightClub
             var query = from h in db.PreMadeHeroes
                         select h;
 
-            lbxPreMadeHeros.ItemsSource = query.ToList();
+            lbxPreMadeHeroes.ItemsSource = query.ToList();
 
 
             #region Create Characters
@@ -98,6 +100,18 @@ namespace FightClub
 
             lbxDeath.ItemsSource = null;
             lbxDeath.ItemsSource = dead;
+
+            //Clear Character text box
+            txtbxCreateCharacterName.Text = "";
+            txtbxCreateCharacterAC.Text = "";
+            txtbxCreateCharacterHP.Text = "";
+            txtbxCreateCharacterDex.Text = "";
+
+            //Clear Hero text box
+            txtbxCreateHeroName.Text = "";
+            txtbxCreateHeroAC.Text = "";
+            txtbxCreateHeroHP.Text = "";
+            txtbxCreateHeroDex.Text = "";
         }
         //Moves Hero from combat list to dead list
         private void KillHero(Hero selectedHero)
@@ -374,7 +388,23 @@ namespace FightClub
         #endregion
 
         #endregion
+        private void createCharacter_Click(object sender, RoutedEventArgs e)
+        {
+            if ((txtbxCreateCharacterName.Text != "") && (txtbxCreateCharacterAC.Text != "") && (txtbxCreateCharacterHP.Text != "") && (txtbxCreateCharacterDex.Text != ""))
+            {
+                Character createdCharacter = new Character(txtbxCreateCharacterName.Text, int.Parse(txtbxCreateCharacterAC.Text), int.Parse(txtbxCreateCharacterHP.Text), int.Parse(txtbxCreateCharacterDex.Text));
+                combat.Add(createdCharacter);
+                RefreshScreen();
 
+            }
+            else
+            {
+                MessageBox.Show("Field empty.", "Error");
+            }
+            combat.Sort();
+            combat.Reverse();
+    
+        }
         private void btnCreateHero_Click(object sender, RoutedEventArgs e)
         {
             if ((txtbxCreateHeroName.Text != "") && (txtbxCreateHeroAC.Text != "") && (txtbxCreateHeroHP.Text != "") && (txtbxCreateHeroDex.Text != ""))
@@ -478,11 +508,10 @@ namespace FightClub
         }
         private void lbxPreMadeHeros_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //Display album of selected band
-            PreMadeHero selectedPreMadeHero = lbxPreMadeHeros.SelectedItem as PreMadeHero;
+            
+            PreMadeHero selectedPreMadeHero = lbxPreMadeHeroes.SelectedItem as PreMadeHero;
 
-            if (selectedPreMadeHero.Id != null)
-            {
+           
                 int id = selectedPreMadeHero.Id;
 
                 string heroImg = selectedPreMadeHero.HeroImage;
@@ -491,11 +520,101 @@ namespace FightClub
 
                 imgPreMadeHero.Source = new BitmapImage(new Uri(heroImg));
                 txtblPreMadeHeroDescription.Text = description;
-            }
+            
         }
+        #region PreMadeContent
+        private void addPreMadeHero_Click(object sender, RoutedEventArgs e)
+        {
+            PreMadeHero selectedHero = lbxPreMadeHeroes.SelectedItem as PreMadeHero;
 
+            if (selectedHero != null && selectedHero.Class_Id == 1)
+            {
+                Hero createdHero = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP),Classes.Barbarian, int.Parse(selectedHero.Dex),selectedHero.Description);
+                combat.Add(createdHero);
+                RefreshScreen();
+            }
+            if (selectedHero != null)
+            {
+                switch (selectedHero.Class_Id)
+                {
+                    case 1:
+                        Hero PremadeBarbarian = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Barbarian, int.Parse(selectedHero.Dex), selectedHero.Description);
+                        combat.Add(PremadeBarbarian);
+                        break;
+                    case 2:
+                        Hero PremadeBard = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Bard, int.Parse(selectedHero.Dex), selectedHero.Description);
+                        combat.Add(PremadeBard);
+                        break;
+                    case 3:
+                        Hero PremadeCleric = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Cleric, int.Parse(selectedHero.Dex), selectedHero.Description);
+                        combat.Add(PremadeCleric);
+                        break;
+                    case 4:
+                        Hero PremadeDruid = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Druid, int.Parse(selectedHero.Dex), selectedHero.Description);
+                        combat.Add(PremadeDruid);
+                        break;
+                    case 5:
+                        Hero PremadeFighter = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Figther, int.Parse(selectedHero.Dex), selectedHero.Description);
+                        combat.Add(PremadeFighter);
+                        break;
+                    case 6:
+                        Hero PremadeMonk = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Monk, int.Parse(selectedHero.Dex), selectedHero.Description);
+                        combat.Add(PremadeMonk);
+                        break;
+                    case 7:
+                        Hero PremadePaladin = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Paladin, int.Parse(selectedHero.Dex), selectedHero.Description);
+                        combat.Add(PremadePaladin);
+                        break;
+                    case 8:
+                        Hero PremadeRanger = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Ranger, int.Parse(selectedHero.Dex), selectedHero.Description);
+                        combat.Add(PremadeRanger);
+                        break;
+                    case 9:
+                        Hero PremadeRouge = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Rouge, int.Parse(selectedHero.Dex), selectedHero.Description);
+                        combat.Add(PremadeRouge);
+                        break;
+                    case 10:
+                        Hero PremadeSorcerer = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Sorcerer, int.Parse(selectedHero.Dex), selectedHero.Description);
+                        combat.Add(PremadeSorcerer);
+                        break;
+                    case 11:
+                        Hero PremadeWarlock = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Warlock, int.Parse(selectedHero.Dex), selectedHero.Description);
+                        combat.Add(PremadeWarlock);
+                        break;
+                    case 12:
+                        Hero PremadeWizard = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Wizard, int.Parse(selectedHero.Dex), selectedHero.Description);
+                        combat.Add(PremadeWizard);
+                        break;
+               
+                }
+               
+              
+                RefreshScreen();
+            }
+            if (selectedHero != null && selectedHero.Class_Id == 1)
+            {
+                Hero createdHero = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Barbarian, int.Parse(selectedHero.Dex), selectedHero.Description);
+                combat.Add(createdHero);
+                RefreshScreen();
+            }
+            if (selectedHero != null && selectedHero.Class_Id == 1)
+            {
+                Hero createdHero = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Barbarian, int.Parse(selectedHero.Dex), selectedHero.Description);
+                combat.Add(createdHero);
+                RefreshScreen();
+            }
+            if (selectedHero != null && selectedHero.Class_Id == 1)
+            {
+                Hero createdHero = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Barbarian, int.Parse(selectedHero.Dex), selectedHero.Description);
+                combat.Add(createdHero);
+                RefreshScreen();
+            }
 
-
+            combat.Sort();
+            combat.Reverse();
+            RefreshScreen();
+        }
+        #endregion
     }
 }
 

@@ -105,8 +105,8 @@
                 <TextBox x:Name="txtbxCreateCharacterName" HorizontalAlignment="Left" Height="22" Margin="85,20,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Foreground="White" Grid.Column="1"/>
                 <TextBox x:Name="txtbxCreateCharacterHP" HorizontalAlignment="Left" Height="24" Margin="85,76,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Foreground="White" Grid.Column="1"/>
                 <TextBox x:Name="txtbxCreateCharacterAC" HorizontalAlignment="Left" Height="23" Margin="85,147,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Foreground="White" Grid.Column="1"/>
-                <TextBox x:Name="txtbxCreateCharaacterDex" HorizontalAlignment="Left" Height="23" Margin="85,209,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Foreground="White" Grid.Column="1"/>
-                <Button Content="Create Character" HorizontalAlignment="Left" Margin="55,385,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150" Grid.Column="1"/>
+                <TextBox x:Name="txtbxCreateCharacterDex" HorizontalAlignment="Left" Height="23" Margin="85,209,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Foreground="White" Grid.Column="1"/>
+                <Button x:Name="createCharacter" Content="Create Character" HorizontalAlignment="Left" Margin="55,385,0,0" Grid.Row="1" VerticalAlignment="Top" Width="150" Grid.Column="1" Click="createCharacter_Click"/>
                 <ComboBox x:Name="cmboxCreateHeroClass" HorizontalAlignment="Left" Margin="106,269,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" Foreground="White">
                     <ComboBoxItem>Barbarian</ComboBoxItem>
                     <ComboBoxItem>Bard</ComboBoxItem>
@@ -140,9 +140,10 @@
                     <RowDefinition Height="90*"/>
                     <RowDefinition Height="10*"/>
                 </Grid.RowDefinitions>
-                <ListBox x:Name="lbxPreMadeHeros" ItemTemplate="{StaticResource combatTemplate}" HorizontalAlignment="Left" Height="423" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="573" Background="White" Foreground="#DD000000" SelectionChanged="lbxPreMadeHeros_SelectionChanged"/>
+                <ListBox x:Name="lbxPreMadeHeroes" ItemTemplate="{StaticResource combatTemplate}" HorizontalAlignment="Left" Height="423" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="573" Background="White" Foreground="#DD000000" SelectionChanged="lbxPreMadeHeros_SelectionChanged"/>
                 <Image x:Name="imgPreMadeHero" Grid.Column="1" HorizontalAlignment="Left" Height="423" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="275"/>
                 <TextBlock x:Name="txtblPreMadeHeroDescription" Grid.Column="1" HorizontalAlignment="Left" Margin="290,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="70" Width="230" Foreground="White"/>
+                <Button x:Name="addPreMadeHero" Content="Add Hero" HorizontalAlignment="Left" Margin="230,7,0,0" Grid.Row="2" VerticalAlignment="Top" Width="150" Grid.Column="1" Click="addPreMadeHero_Click"/>
             </Grid>
         </TabItem>
     </TabControl>
