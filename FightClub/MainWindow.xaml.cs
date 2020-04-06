@@ -42,6 +42,12 @@ namespace FightClub
 
             lbxPreMadeHeroes.ItemsSource = query.ToList();
 
+         
+
+         
+
+
+   
 
             #region Create Characters
             //Create Enemies
@@ -227,51 +233,51 @@ namespace FightClub
                 //Dispalys image within the ImgClass depending on the hero's class which is stored on a AWS S3
                 if (selectedHero.PlayerClass == Classes.Barbarian )
                 {
-                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Barbarian.png"));
+                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Icons/DnDLogos/Barbarian.png"));
                 }
                 if (selectedHero.PlayerClass == Classes.Bard)
                 {
-                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Bard.png"));
+                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Icons/DnDLogos/Bard.png"));
                 }
                 if (selectedHero.PlayerClass == Classes.Cleric)
                 {
-                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Cleric.png"));
+                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Icons/DnDLogos/Cleric.png"));
                 }
                 if (selectedHero.PlayerClass == Classes.Druid)
                 {
-                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Druid.png"));
+                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Icons/DnDLogos/Druid.png"));
                 }
                 if (selectedHero.PlayerClass == Classes.Figther)
                 {
-                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Fighter.png"));
+                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Icons/DnDLogos/Druid.png"));
                 }
                 if (selectedHero.PlayerClass == Classes.Monk)
                 {
-                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Monk.png"));
+                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Icons/DnDLogos/Monk.png"));
                 }
                 if (selectedHero.PlayerClass == Classes.Paladin)
                 {
-                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Paladin.png"));
+                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Icons/DnDLogos/Paladin.png"));
                 }
                 if (selectedHero.PlayerClass == Classes.Ranger)
                 {
-                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Ranger.png"));
+                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Icons/DnDLogos/Ranger.png"));
                 }
                 if (selectedHero.PlayerClass == Classes.Rouge)
                 {
-                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Rouge.png"));
+                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Icons/DnDLogos/Rogue.png"));
                 }
                 if (selectedHero.PlayerClass == Classes.Sorcerer)
                 {
-                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Sorcerer.png"));
+                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Icons/DnDLogos/Sorcerer.png"));
                 }
                 if (selectedHero.PlayerClass == Classes.Warlock)
                 {
-                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Warlock.png"));
+                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Icons/DnDLogos/Warlock.png"));
                 }
                 if (selectedHero.PlayerClass == Classes.Wizard)
                 {
-                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Wizard.png"));
+                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Icons/DnDLogos/Wizard.png"));
                 }
 
             }
@@ -508,8 +514,11 @@ namespace FightClub
         }
         private void lbxPreMadeHeros_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+        
+
+
             PreMadeHero selectedPreMadeHero = lbxPreMadeHeroes.SelectedItem as PreMadeHero;
+            Weapon selectedWeapon;
 
            
                 int id = selectedPreMadeHero.Id;
@@ -517,10 +526,29 @@ namespace FightClub
                 string heroImg = selectedPreMadeHero.HeroImage;
                 string description = selectedPreMadeHero.Description;
 
+               int selectedWeaponId = selectedPreMadeHero.Weapon_Id;
+               var selectedSpellId = selectedPreMadeHero.Spell_Id;
 
-                imgPreMadeHero.Source = new BitmapImage(new Uri(heroImg));
-                txtblPreMadeHeroDescription.Text = description;
-            
+            var weaponsQuery = from ph in db.PreMadeHeroes
+                               join w in db.Weapons on ph.Weapon_Id equals w.Id
+                               where ph.Weapon_Id == selectedWeaponId
+                               select w.Name;
+
+            var spellsQuery = from ph in db.PreMadeHeroes
+                               join s in db.Spells on ph.Spell_Id equals s.Id
+                               where ph.Spell_Id == selectedSpellId
+                               select s.Name;
+      
+
+
+            imgPreMadeHero.Source = new BitmapImage(new Uri(heroImg));
+            txtblPreMadeHeroDescription.Text = description;
+            lbxPremadeHeroWeapons.ItemsSource = weaponsQuery.ToList().Distinct();
+            lbxPremadeHeroSpells.ItemsSource = spellsQuery.ToList().Distinct();
+
+
+
+
         }
         #region PreMadeContent
         private void addPreMadeHero_Click(object sender, RoutedEventArgs e)
@@ -615,6 +643,8 @@ namespace FightClub
             RefreshScreen();
         }
         #endregion
+
+      
     }
 }
 

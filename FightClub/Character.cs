@@ -31,8 +31,9 @@ namespace FightClub
         public int AC { get; set; } /*Armor Class*/
         public int HP { get; set; } /*Hit Points*/
         public int Dex { get; set; } /*Dexterity*/
-
         public string Description { get; set; }
+
+        public string CharacterImagae { get; set; }
 
         /*Constructors*/
 
@@ -52,6 +53,16 @@ namespace FightClub
         }
         //Character Build with Description
         public Character(string name, int ac, int hp, int dex, string description)
+        {
+            Name = name;
+            AC = ac;
+            HP = hp;
+            Dex = dex;
+            Description = description;
+
+        }
+        //Character Build with Description and Image
+        public Character(string name, int ac, int hp, int dex, string description, string characterIma)
         {
             Name = name;
             AC = ac;
