@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Threading;
+using System.IO;
 
 namespace FightClub
 {
@@ -682,6 +683,11 @@ namespace FightClub
             combat.Sort();
             combat.Reverse();
             RefreshScreen();
+        }
+
+        private void writeToFile_Click(object sender, RoutedEventArgs e)
+        {
+           
         }
     }
 }
