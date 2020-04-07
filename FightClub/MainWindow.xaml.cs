@@ -53,23 +53,21 @@ namespace FightClub
             //Create Enemies
             Character enemy1 = new Character("Red Dragon", 19, 256, 16,
            "Red dragons, were covetous, evil creatures, interested only in their own well-being, vanity and the extension of their treasure hoards. They were supremely confident of their own abilities and were prone to making snap decisions without any forethought");
-            Character enemy2 = new Character("Skeleton1", 13, 13, 18, "Skeletons were undead animated corpses similar to zombies, but completely devoid of flesh and did not feed on the living. They could be made from virtually any solid creature, and as such their size and power varied widely. In addition to the basic humanoid skeleton, there were also skeletons created from wolves, trolls, ettins and even giants.");
-            Character enemy3 = new Character("Skeleton2", 13, 13, 9, "Skeletons were undead animated corpses similar to zombies, but completely devoid of flesh and did not feed on the living. They could be made from virtually any solid creature, and as such their size and power varied widely. In addition to the basic humanoid skeleton, there were also skeletons created from wolves, trolls, ettins and even giants.");
+     
 
             //Create Heros
-            Hero hero1 = new Hero("Ig The Barbarian", 14, 22, Classes.Barbarian, 2, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.");
-            Hero hero2 = new Hero("MitaK", 17, 25, Classes.Paladin, 11, "MitaK is a famed conquere of the land and shows no mercy to his enemies");
-            Hero hero3 = new Hero("Susan Songhart", 9, 11, Classes.Bard, 20, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.");
-            Hero hero4 = new Hero("Mary Ironfist", 15, 18, Classes.Monk, 17);
-            Hero hero5 = new Hero("Ragagast the Wise", 9, 14, Classes.Wizard, 10, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut");
-            Hero hero6 = new Hero("Favra Trukamre", 12, 15, Classes.Ranger, 17, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ");
+            Hero hero1 = new Hero("Ig The Barbarian", 14, 22, Classes.Barbarian, 2, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", "https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Ig.png");
+            Hero hero2 = new Hero("MitaK", 17, 25, Classes.Paladin, 11, "MitaK is a famed conquere of the land and shows no mercy to his enemies", "https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Mitak.jpg");
+            Hero hero3 = new Hero("Susan Songhart", 9, 11, Classes.Bard, 20, "A young nobel on the run from her family duties to discover all of the wonders the world has to offer.", "https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Susan+Songhart.jpg");
+            Hero hero4 = new Hero("Defalut Hero", 15, 18, Classes.Figther, 17);
+            Hero hero5 = new Hero("Radagast the Wise", 9, 14, Classes.Wizard, 10, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut", "https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Radagast+the+Wise.png");
+            Hero hero6 = new Hero("Kyra Pythonblood", 12, 15, Classes.Cleric, 17, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ", "https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Kyra+Pythonblood.jpg");
             #endregion
 
             #region Add Characters to List
             //Add all the Enemies(Chartacter Class) to the combat list
             combat.Add(enemy1);
-            combat.Add(enemy2);
-            combat.Add(enemy3);
+
 
             //Add all the heros (Character Subclass) to the combat list
             combat.Add(hero1);
@@ -222,11 +220,21 @@ namespace FightClub
                 txtClass.Text = "Enemy";
                 txtDescription.Text = selectedCharacter.Description;
                 ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Enemy.png"));
+                imgCharacter.Source = new BitmapImage(new Uri(selectedCharacter.CharacterImage));
                 
+            
             }
             if (selectedHero != null) //Checks to see if the selected character isn't null and is of the subclass Hero
             {
-                
+                if (selectedHero.CharacterImage != null)
+                {
+
+                    imgCharacter.Source = new BitmapImage(new Uri(selectedHero.CharacterImage));
+                }
+                else
+                {
+                    imgCharacter.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Default.png"));
+                }
                 //Display the selected Hero's class property and the discription in the discription text box
                 txtClass.Text = selectedHero.PlayerClass.ToString();
                 txtDescription.Text = selectedHero.Description;
@@ -249,7 +257,7 @@ namespace FightClub
                 }
                 if (selectedHero.PlayerClass == Classes.Figther)
                 {
-                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Icons/DnDLogos/Druid.png"));
+                    ImgClass.Source = new BitmapImage(new Uri("https://dndcharacters.s3-eu-west-1.amazonaws.com/Icons/DnDLogos/Fighter.png"));
                 }
                 if (selectedHero.PlayerClass == Classes.Monk)
                 {
@@ -559,51 +567,51 @@ namespace FightClub
                 switch (selectedHero.Class_Id)
                 {
                     case 1:
-                        Hero PremadeBarbarian = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Barbarian, int.Parse(selectedHero.Dex), selectedHero.Description);
+                        Hero PremadeBarbarian = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Barbarian, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
                         combat.Add(PremadeBarbarian);
                         break;
                     case 2:
-                        Hero PremadeBard = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Bard, int.Parse(selectedHero.Dex), selectedHero.Description);
+                        Hero PremadeBard = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Bard, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
                         combat.Add(PremadeBard);
                         break;
                     case 3:
-                        Hero PremadeCleric = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Cleric, int.Parse(selectedHero.Dex), selectedHero.Description);
+                        Hero PremadeCleric = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Cleric, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
                         combat.Add(PremadeCleric);
                         break;
-                    case 4:
-                        Hero PremadeDruid = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Druid, int.Parse(selectedHero.Dex), selectedHero.Description);
+                    case 5:
+                        Hero PremadeDruid = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Druid, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
                         combat.Add(PremadeDruid);
                         break;
-                    case 5:
-                        Hero PremadeFighter = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Figther, int.Parse(selectedHero.Dex), selectedHero.Description);
+                    case 6:
+                        Hero PremadeFighter = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Figther, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
                         combat.Add(PremadeFighter);
                         break;
-                    case 6:
-                        Hero PremadeMonk = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Monk, int.Parse(selectedHero.Dex), selectedHero.Description);
+                    case 7:
+                        Hero PremadeMonk = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Monk, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
                         combat.Add(PremadeMonk);
                         break;
-                    case 7:
-                        Hero PremadePaladin = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Paladin, int.Parse(selectedHero.Dex), selectedHero.Description);
+                    case 8:
+                        Hero PremadePaladin = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Paladin, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
                         combat.Add(PremadePaladin);
                         break;
-                    case 8:
-                        Hero PremadeRanger = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Ranger, int.Parse(selectedHero.Dex), selectedHero.Description);
+                    case 9:
+                        Hero PremadeRanger = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Ranger, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
                         combat.Add(PremadeRanger);
                         break;
-                    case 9:
-                        Hero PremadeRouge = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Rouge, int.Parse(selectedHero.Dex), selectedHero.Description);
+                    case 10:
+                        Hero PremadeRouge = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Rouge, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
                         combat.Add(PremadeRouge);
                         break;
-                    case 10:
-                        Hero PremadeSorcerer = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Sorcerer, int.Parse(selectedHero.Dex), selectedHero.Description);
+                    case 11:
+                        Hero PremadeSorcerer = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Sorcerer, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
                         combat.Add(PremadeSorcerer);
                         break;
-                    case 11:
-                        Hero PremadeWarlock = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Warlock, int.Parse(selectedHero.Dex), selectedHero.Description);
+                    case 12:
+                        Hero PremadeWarlock = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Warlock, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
                         combat.Add(PremadeWarlock);
                         break;
-                    case 12:
-                        Hero PremadeWizard = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Wizard, int.Parse(selectedHero.Dex), selectedHero.Description);
+                    case 13:
+                        Hero PremadeWizard = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Wizard, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
                         combat.Add(PremadeWizard);
                         break;
                
@@ -612,25 +620,6 @@ namespace FightClub
               
                 RefreshScreen();
             }
-            if (selectedHero != null && selectedHero.Class_Id == 1)
-            {
-                Hero createdHero = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Barbarian, int.Parse(selectedHero.Dex), selectedHero.Description);
-                combat.Add(createdHero);
-                RefreshScreen();
-            }
-            if (selectedHero != null && selectedHero.Class_Id == 1)
-            {
-                Hero createdHero = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Barbarian, int.Parse(selectedHero.Dex), selectedHero.Description);
-                combat.Add(createdHero);
-                RefreshScreen();
-            }
-            if (selectedHero != null && selectedHero.Class_Id == 1)
-            {
-                Hero createdHero = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Barbarian, int.Parse(selectedHero.Dex), selectedHero.Description);
-                combat.Add(createdHero);
-                RefreshScreen();
-            }
-
             combat.Sort();
             combat.Reverse();
             RefreshScreen();
@@ -676,7 +665,7 @@ namespace FightClub
             Enemy selectedEnemy = lbxPreMadeMonsters.SelectedItem as Enemy;
             if (selectedEnemy != null)
             {
-                Character premadeEnemy = new Character(selectedEnemy.Name, int.Parse(selectedEnemy.AC), int.Parse(selectedEnemy.HP), int.Parse(selectedEnemy.Dex),selectedEnemy.Description);
+                Character premadeEnemy = new Character(selectedEnemy.Name, int.Parse(selectedEnemy.AC), int.Parse(selectedEnemy.HP), int.Parse(selectedEnemy.Dex),selectedEnemy.Description,selectedEnemy.EnemyImage);
                 combat.Add(premadeEnemy);
             }
 
@@ -685,10 +674,7 @@ namespace FightClub
             RefreshScreen();
         }
 
-        private void writeToFile_Click(object sender, RoutedEventArgs e)
-        {
-           
-        }
+
     }
 }
 

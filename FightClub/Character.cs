@@ -33,7 +33,7 @@ namespace FightClub
         public int Dex { get; set; } /*Dexterity*/
         public string Description { get; set; }
 
-        public string CharacterImagae { get; set; }
+        public string CharacterImage { get; set; }
 
         /*Constructors*/
 
@@ -50,6 +50,7 @@ namespace FightClub
             HP = hp;
             Dex = dex;
             Description = "No Description";
+            CharacterImage = "https://dndcharacters.s3-eu-west-1.amazonaws.com/Monsters/DefaultMonster.jpg";
         }
         //Character Build with Description
         public Character(string name, int ac, int hp, int dex, string description)
@@ -59,18 +60,20 @@ namespace FightClub
             HP = hp;
             Dex = dex;
             Description = description;
-
+            CharacterImage = "https://dndcharacters.s3-eu-west-1.amazonaws.com/Monsters/DefaultMonster.jpg";
         }
         //Character Build with Description and Image
-        public Character(string name, int ac, int hp, int dex, string description, string characterIma)
+        public Character(string name, int ac, int hp, int dex, string description, string characterimage)
         {
             Name = name;
             AC = ac;
             HP = hp;
             Dex = dex;
             Description = description;
+            CharacterImage = characterimage;
 
         }
+
         /*Methods*/
         public override string ToString()
         {
@@ -103,7 +106,7 @@ namespace FightClub
             PlayerClass = playerClass;
             Dex = dex;
             Description = "No Description";
-           
+            CharacterImage = "https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Default.png";
 
         }
         public Hero(string name, int ac, int hp, Classes playerClass, int dex, string description)
@@ -114,8 +117,20 @@ namespace FightClub
             PlayerClass = playerClass;
             Dex = dex;
             Description = description;
+            CharacterImage = "https://dndcharacters.s3-eu-west-1.amazonaws.com/Characters/Default.png";
 
         }
+        public Hero(string name, int ac, int hp, Classes playerClass, int dex, string description, string heroImage)
+        {
+            Name = name;
+            AC = ac;
+            HP = hp;
+            PlayerClass = playerClass;
+            Dex = dex;
+            Description = description;
+            CharacterImage = heroImage;
+        }
+  
         public override string ToString()
         {
             return string.Format("{0} {1} {2} {3}", Name, AC, HP, Dex);
