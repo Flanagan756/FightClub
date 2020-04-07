@@ -41,7 +41,7 @@ namespace FightClub
             var heroListQuery = from h in db.PreMadeHeroes
                         select h;
 
-            lbxPreMadeHeroes.ItemsSource = heroListQuery.ToList();
+            lbxPremadeHeroes.ItemsSource = heroListQuery.ToList();
 
             var enemyListQuery = from en in db.Enemies
                         select en;
@@ -525,7 +525,7 @@ namespace FightClub
         
 
 
-            PreMadeHero selectedPreMadeHero = lbxPreMadeHeroes.SelectedItem as PreMadeHero;
+            PreMadeHero selectedPreMadeHero = lbxPremadeHeroes.SelectedItem as PreMadeHero;
        
 
            
@@ -549,8 +549,8 @@ namespace FightClub
       
 
 
-            imgPreMadeHero.Source = new BitmapImage(new Uri(heroImg));
-            txtblPreMadeHeroDescription.Text = description;
+            imgPremadeHero.Source = new BitmapImage(new Uri(heroImg));
+            txtblPremadeHeroDescription.Text = description;
             lbxPremadeHeroWeapons.ItemsSource = weaponsQuery.ToList().Distinct();
             lbxPremadeHeroSpells.ItemsSource = spellsQuery.ToList().Distinct();
 
@@ -558,10 +558,11 @@ namespace FightClub
 
 
         }
-        #region PreMadeContent
-        private void addPreMadeHero_Click(object sender, RoutedEventArgs e)
+        #region PremadeHeroes
+
+        private void addPremadeHero_Click(object sender, RoutedEventArgs e)
         {
-            PreMadeHero selectedHero = lbxPreMadeHeroes.SelectedItem as PreMadeHero;
+            PreMadeHero selectedHero = lbxPremadeHeroes.SelectedItem as PreMadeHero;
             if (selectedHero != null)
             {
                 switch (selectedHero.Class_Id)
@@ -674,7 +675,7 @@ namespace FightClub
             RefreshScreen();
         }
 
-
+       
     }
 }
 

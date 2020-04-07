@@ -73,9 +73,6 @@
                 <Button x:Name="btnDiceRoll" Content="Roll" HorizontalAlignment="Left" Margin="198,78,0,0" Grid.Row="2" VerticalAlignment="Top" Width="95" Click="btnDiceRoll_Click"/>
                 <TextBlock x:Name="txtblDiceResult" HorizontalAlignment="Left" Margin="249,47,0,0" Grid.Row="2" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Foreground="White" FontSize="20" Width="44" RenderTransformOrigin="2.583,-0.111" Text="0"/>
                 <Button x:Name="btnRevive" Content="Revive" Grid.Column="2" HorizontalAlignment="Left" Margin="90,78,0,0" Grid.Row="2" VerticalAlignment="Top" Width="74" Click="btnRevive_Click"/>
-
-
-
             </Grid>
         </TabItem>
 
@@ -128,11 +125,6 @@
                 </ComboBox>
                 <Image x:Name="imgDefaultHero" Source="https://media-waterdeep.cursecdn.com/avatars/thumbnails/6/258/420/618/636271801914013762.png" HorizontalAlignment="Left" Height="413" Margin="298,20,0,0" Grid.Row="1" VerticalAlignment="Top" Width="264"/>
                 <Image x:Name="imgDefaultCharacter" Source="https://media.wizards.com/2014/images/dnd/newtodnd/beholder_1.png" HorizontalAlignment="Left" Height="404" Margin="210,13,0,0" VerticalAlignment="Top" Width="373" Grid.Column="1" Grid.Row="1"/>
-
-
-
-
-
             </Grid>
         </TabItem>
         <TabItem Name="Ex3" Header="🦸‍♂️" Width="60">
@@ -152,14 +144,12 @@
                 <Label Content="Hero Info"  VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="0" FontSize="16"/>
                 <Label Content="Hero Weapon"  VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="1" FontSize="16" Margin="10,238,122,0" Width="105"/>
                 <Label Content="Hero Spell"  VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="1" FontSize="16" Margin="10,329,146,0"/>
-                <ListBox x:Name="lbxPreMadeHeroes" ItemTemplate="{StaticResource combatTemplate}" HorizontalAlignment="Left" Height="423" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="573" Background="White" Foreground="#DD000000" SelectionChanged="lbxPreMadeHeros_SelectionChanged"/>
-                <Image x:Name="imgPreMadeHero" Grid.Column="1" HorizontalAlignment="Left" Height="423" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="336"/>
-                <TextBlock x:Name="txtblPreMadeHeroDescription" Grid.Column="2" HorizontalAlignment="Left" Margin="10,65,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="70" Width="217" Foreground="White"/>
+                <ListBox x:Name="lbxPremadeHeroes" ItemTemplate="{StaticResource combatTemplate}" HorizontalAlignment="Left" Height="423" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="573" Background="White" Foreground="#DD000000" SelectionChanged="lbxPreMadeHeros_SelectionChanged"/>
+                <Image x:Name="imgPremadeHero" Grid.Column="1" HorizontalAlignment="Left" Height="423" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="336"/>
+                <TextBlock x:Name="txtblPremadeHeroDescription" Grid.Column="2" HorizontalAlignment="Left" Margin="10,65,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="70" Width="217" Foreground="White"/>
                 <ListBox x:Name="lbxPremadeHeroSpells" Grid.Column="2" HorizontalAlignment="Left" Margin="10,363,0,0" Grid.Row="1"  VerticalAlignment="Top" Height="70" Width="217" Foreground="White"/>
                 <ListBox x:Name="lbxPremadeHeroWeapons" Grid.Column="2" HorizontalAlignment="Left" Height="57" Margin="10,267,0,0" Grid.Row="1" VerticalAlignment="Top" Width="217" Foreground="White"/>
-                <Button x:Name="addPreMadeHero" Content="Add Hero" HorizontalAlignment="Left" Margin="116,7,0,0" Grid.Row="2" VerticalAlignment="Top" Width="150" Grid.Column="1" Click="addPreMadeHero_Click"/>
-
-
+                <Button x:Name="addPremadeHero" Content="AddPremadeHero" HorizontalAlignment="Left" Margin="116,7,0,0" Grid.Row="2" VerticalAlignment="Top" Width="150" Grid.Column="1" Click="addPremadeHero_Click"/>
 
             </Grid>
         </TabItem>
