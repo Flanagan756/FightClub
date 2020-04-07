@@ -157,5 +157,33 @@
 
             </Grid>
         </TabItem>
+        <TabItem Name="Ex4" Header="👹" Width="60">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="90*"/>
+                    <RowDefinition Height="10*"/>
+                </Grid.RowDefinitions>
+                <Label Content="Montser List"  VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" FontSize="16"/>
+                <Label Content="Monster Image"  VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="0" FontSize="16"/>
+                <Label Content="Monster Info"  VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="0" FontSize="16"/>
+                <Label Content="Monster Weapon"  VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="1" FontSize="16" Margin="10,238,69,0" Width="158"/>
+                <Label Content="Monster Spell"  VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="1" FontSize="16" Margin="10,329,69,0" Width="158"/>
+                <ListBox x:Name="lbxPreMadeMonsters" ItemTemplate="{StaticResource combatTemplate}" HorizontalAlignment="Left" Height="423" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="573" Background="White" Foreground="#DD000000" SelectionChanged="lbxPreMadeMonsters_SelectionChanged"/>
+                <Image x:Name="imgPreMadeMonster" Grid.Column="1" HorizontalAlignment="Left" Height="423" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="336"/>
+                <TextBlock x:Name="txtblPreMadeMontserDescription" Grid.Column="2" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="228" Width="217" Foreground="White"/>
+                <ListBox x:Name="lbxPremadeMonsterSpells" Grid.Column="2" HorizontalAlignment="Left" Margin="10,363,0,0" Grid.Row="1"  VerticalAlignment="Top" Height="70" Width="217" Foreground="White"/>
+                <ListBox x:Name="lbxPremadeMonsterWeapons" Grid.Column="2" HorizontalAlignment="Left" Height="57" Margin="10,267,0,0" Grid.Row="1" VerticalAlignment="Top" Width="217" Foreground="White"/>
+                <Button x:Name="addPreMadeMonster" Content="Add Monster" HorizontalAlignment="Left" Margin="116,7,0,0" Grid.Row="2" VerticalAlignment="Top" Width="150" Grid.Column="1" Click="addPreMadeMonster_Click"/>
+
+
+
+            </Grid>
+        </TabItem>
     </TabControl>
 </Window>

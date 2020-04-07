@@ -37,17 +37,16 @@ namespace FightClub
         {
             InitializeComponent();
 
-            var query = from h in db.PreMadeHeroes
+            var heroListQuery = from h in db.PreMadeHeroes
                         select h;
 
-            lbxPreMadeHeroes.ItemsSource = query.ToList();
+            lbxPreMadeHeroes.ItemsSource = heroListQuery.ToList();
 
-         
+            var enemyListQuery = from en in db.Enemies
+                        select en;
 
-         
+            lbxPreMadeMonsters.ItemsSource = enemyListQuery.ToList();
 
-
-   
 
             #region Create Characters
             //Create Enemies
@@ -518,7 +517,7 @@ namespace FightClub
 
 
             PreMadeHero selectedPreMadeHero = lbxPreMadeHeroes.SelectedItem as PreMadeHero;
-            Weapon selectedWeapon;
+       
 
            
                 int id = selectedPreMadeHero.Id;
@@ -554,13 +553,6 @@ namespace FightClub
         private void addPreMadeHero_Click(object sender, RoutedEventArgs e)
         {
             PreMadeHero selectedHero = lbxPreMadeHeroes.SelectedItem as PreMadeHero;
-
-            if (selectedHero != null && selectedHero.Class_Id == 1)
-            {
-                Hero createdHero = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP),Classes.Barbarian, int.Parse(selectedHero.Dex),selectedHero.Description);
-                combat.Add(createdHero);
-                RefreshScreen();
-            }
             if (selectedHero != null)
             {
                 switch (selectedHero.Class_Id)
@@ -642,9 +634,55 @@ namespace FightClub
             combat.Reverse();
             RefreshScreen();
         }
+
         #endregion
 
-      
+        private void lbxPreMadeMonsters_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            Enemy selectedEnemy = lbxPreMadeMonsters.SelectedItem as Enemy;
+
+
+
+            int id = selectedEnemy.Id;
+
+            string monsterImg = selectedEnemy.EnemyImage;
+            string description = selectedEnemy.Description;
+
+            int selectedWeaponId = selectedEnemy.Weapon_Id;
+            var selectedSpellId = selectedEnemy.Spell_Id;
+
+            var weaponsQuery = from en in db.Enemies
+                               join w in db.Weapons on en.Weapon_Id equals w.Id
+                               where en.Weapon_Id == selectedWeaponId
+                               select w.Name;
+
+            var spellsQuery = from en in db.Enemies
+                              join s in db.Spells on en.Spell_Id equals s.Id
+                              where en.Spell_Id == selectedSpellId
+                              select s.Name;
+
+
+
+            imgPreMadeMonster.Source = new BitmapImage(new Uri(monsterImg));
+            txtblPreMadeMontserDescription.Text = description;
+            lbxPremadeMonsterWeapons.ItemsSource = weaponsQuery.ToList().Distinct();
+            lbxPremadeMonsterSpells.ItemsSource = spellsQuery.ToList().Distinct();
+        }
+
+        private void addPreMadeMonster_Click(object sender, RoutedEventArgs e)
+        {
+            Enemy selectedEnemy = lbxPreMadeMonsters.SelectedItem as Enemy;
+            if (selectedEnemy != null)
+            {
+                Character premadeEnemy = new Character(selectedEnemy.Name, int.Parse(selectedEnemy.AC), int.Parse(selectedEnemy.HP), int.Parse(selectedEnemy.Dex),selectedEnemy.Description);
+                combat.Add(premadeEnemy);
+            }
+
+            combat.Sort();
+            combat.Reverse();
+            RefreshScreen();
+        }
     }
 }
 
