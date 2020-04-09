@@ -120,6 +120,17 @@ namespace FightClub
             txtbxCreateHeroHP.Text = "";
             txtbxCreateHeroDex.Text = "";
         }
+        public int Damage(int damage, Character selectedCharacter)
+        {   
+            selectedCharacter.HP = (selectedCharacter.HP - damage); //HP - damage
+            return selectedCharacter.HP;
+        }
+        public int Heal(int healing, Character selectedCharacter)
+        {
+           
+            selectedCharacter.HP = (selectedCharacter.HP + healing); //HP + heal
+            return selectedCharacter.HP;
+        }
         //Moves Hero from combat list to dead list
         private void KillHero(Hero selectedHero)
         {
@@ -301,8 +312,7 @@ namespace FightClub
             //Null Character Check
             if (selectedCharacter != null)
             {
-                int damage = int.Parse(txtbxDamage.Text);
-                selectedCharacter.HP = (selectedCharacter.HP - damage); //HP - damagae
+                Damage(int.Parse(txtbxDamage.Text), selectedCharacter);
 
                 //Checks if character dies and moves them to dead listbox
                 if (selectedCharacter.HP <= 0)
@@ -330,9 +340,8 @@ namespace FightClub
             //Null Check
             if (selectedCharacter != null)
             {
-                int heal = int.Parse(txtbxHeal.Text);
-
-                selectedCharacter.HP = (selectedCharacter.HP + heal); //HP + heal
+                Heal(int.Parse(txtbxHeal.Text), selectedCharacter);
+                    
 
                 RefreshScreen();
             }
