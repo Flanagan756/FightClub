@@ -27,9 +27,9 @@ namespace FightClub.Test
         public static void HealTest()
         {
             //Arrange
-            FightClub.MainWindow p1 = new MainWindow();
+            FightClub.MainWindow p2 = new MainWindow();
             //Act
-            int actualResult = p1.Heal(10, new Character("tester", 1, 10, 1));
+            int actualResult = p2.Heal(10, new Character("tester", 1, 10, 1));
             //Assert
             Assert.That(actualResult, Is.EqualTo(20));
         }

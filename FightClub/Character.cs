@@ -79,6 +79,15 @@ namespace FightClub
         {
             return string.Format("{0} {1} {2} {3}", Name, AC, HP, Dex);
         }
+        public void Damage(int damage)
+        {
+            HP -= damage;
+        }
+        public void Heal(int healing)
+        {
+            HP += healing;
+         
+        }
         //Sorting based on Dex
         public int CompareTo(Character other)
         {
