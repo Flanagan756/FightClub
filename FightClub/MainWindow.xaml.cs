@@ -396,22 +396,36 @@ namespace FightClub
         #region Character Creation
         private void createCharacter_Click(object sender, RoutedEventArgs e)
         {
-            //Check that all of the fields are filled
-            if ((txtbxCreateCharacterName.Text != "") && (txtbxCreateCharacterAC.Text != "") && (txtbxCreateCharacterHP.Text != "") && (txtbxCreateCharacterDex.Text != ""))
+            try
             {
-                Character createdCharacter = new Character(txtbxCreateCharacterName.Text, int.Parse(txtbxCreateCharacterAC.Text), int.Parse(txtbxCreateCharacterHP.Text), int.Parse(txtbxCreateCharacterDex.Text));
-                combat.Add(createdCharacter);
-                //Sort the new list
-                combat.Sort();
-                combat.Reverse();
-                RefreshScreen();
+
+
+
+                //Check that all of the fields are filled
+                if ((txtbxCreateCharacterName.Text != "") && (txtbxCreateCharacterAC.Text != "") && (txtbxCreateCharacterHP.Text != "") && (txtbxCreateCharacterDex.Text != ""))
+                {
+                    Character createdCharacter = new Character(txtbxCreateCharacterName.Text, int.Parse(txtbxCreateCharacterAC.Text), int.Parse(txtbxCreateCharacterHP.Text), int.Parse(txtbxCreateCharacterDex.Text));
+                    combat.Add(createdCharacter);
+                    //Sort the new list
+                    combat.Sort();
+                    combat.Reverse();
+                    RefreshScreen();
+                }
+                else
+                {
+                    //Display error if any fields are empty
+                    MessageBox.Show("Field empty.", "Error");
+                }
             }
-            else
+            catch (FormatException)
             {
-                //Display error if any fields are empty
-                MessageBox.Show("Field empty.", "Error");
+                MessageBox.Show("Invalid number", "Error");
             }
-          
+            catch (Exception)
+            {
+                MessageBox.Show("An error has occured", "Error");
+                throw;
+            }
         }
         private void btnCreateHero_Click(object sender, RoutedEventArgs e)
         {
@@ -550,62 +564,69 @@ namespace FightClub
         {
             //Add the Premade Hero
             PreMadeHero selectedHero = lbxPremadeHeroes.SelectedItem as PreMadeHero;
-
-            if (selectedHero != null)
+            try
             {
-                //Adds teh hero and diplays their class image
-                switch (selectedHero.Class_Id)
+                if (selectedHero != null)
                 {
-                    case 1:
-                        Hero PremadeBarbarian = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Barbarian, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
-                        combat.Add(PremadeBarbarian);
-                        break;
-                    case 2:
-                        Hero PremadeBard = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Bard, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
-                        combat.Add(PremadeBard);
-                        break;
-                    case 3:
-                        Hero PremadeCleric = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Cleric, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
-                        combat.Add(PremadeCleric);
-                        break;
-                    case 5:
-                        Hero PremadeDruid = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Druid, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
-                        combat.Add(PremadeDruid);
-                        break;
-                    case 6:
-                        Hero PremadeFighter = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Figther, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
-                        combat.Add(PremadeFighter);
-                        break;
-                    case 7:
-                        Hero PremadeMonk = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Monk, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
-                        combat.Add(PremadeMonk);
-                        break;
-                    case 8:
-                        Hero PremadePaladin = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Paladin, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
-                        combat.Add(PremadePaladin);
-                        break;
-                    case 9:
-                        Hero PremadeRanger = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Ranger, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
-                        combat.Add(PremadeRanger);
-                        break;
-                    case 10:
-                        Hero PremadeRouge = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Rouge, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
-                        combat.Add(PremadeRouge);
-                        break;
-                    case 11:
-                        Hero PremadeSorcerer = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Sorcerer, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
-                        combat.Add(PremadeSorcerer);
-                        break;
-                    case 12:
-                        Hero PremadeWarlock = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Warlock, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
-                        combat.Add(PremadeWarlock);
-                        break;
-                    case 13:
-                        Hero PremadeWizard = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Wizard, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
-                        combat.Add(PremadeWizard);
-                        break;
+                    //Adds teh hero and diplays their class image
+                    switch (selectedHero.Class_Id)
+                    {
+                        case 1:
+                            Hero PremadeBarbarian = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Barbarian, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
+                            combat.Add(PremadeBarbarian);
+                            break;
+                        case 2:
+                            Hero PremadeBard = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Bard, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
+                            combat.Add(PremadeBard);
+                            break;
+                        case 3:
+                            Hero PremadeCleric = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Cleric, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
+                            combat.Add(PremadeCleric);
+                            break;
+                        case 5:
+                            Hero PremadeDruid = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Druid, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
+                            combat.Add(PremadeDruid);
+                            break;
+                        case 6:
+                            Hero PremadeFighter = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Figther, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
+                            combat.Add(PremadeFighter);
+                            break;
+                        case 7:
+                            Hero PremadeMonk = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Monk, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
+                            combat.Add(PremadeMonk);
+                            break;
+                        case 8:
+                            Hero PremadePaladin = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Paladin, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
+                            combat.Add(PremadePaladin);
+                            break;
+                        case 9:
+                            Hero PremadeRanger = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Ranger, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
+                            combat.Add(PremadeRanger);
+                            break;
+                        case 10:
+                            Hero PremadeRouge = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Rouge, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
+                            combat.Add(PremadeRouge);
+                            break;
+                        case 11:
+                            Hero PremadeSorcerer = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Sorcerer, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
+                            combat.Add(PremadeSorcerer);
+                            break;
+                        case 12:
+                            Hero PremadeWarlock = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Warlock, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
+                            combat.Add(PremadeWarlock);
+                            break;
+                        case 13:
+                            Hero PremadeWizard = new Hero(selectedHero.Name, int.Parse(selectedHero.AC), int.Parse(selectedHero.HP), Classes.Wizard, int.Parse(selectedHero.Dex), selectedHero.Description, selectedHero.HeroImage);
+                            combat.Add(PremadeWizard);
+                            break;
 
+                    }
                 }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("An error has occured", "Error");
+                throw;
             }
             //Sort Combat listbox and refresh
             combat.Sort();
@@ -648,17 +669,27 @@ namespace FightClub
         private void addPremadeEnemy_Click(object sender, RoutedEventArgs e)
         {
             Enemy selectedEnemy = lbxPremadeEnemies.SelectedItem as Enemy;
-
-            if (selectedEnemy != null)
+            try
             {
-                //Create a character usinging the data from the Enemy table
-                Character premadeEnemy = new Character(selectedEnemy.Name, int.Parse(selectedEnemy.AC), int.Parse(selectedEnemy.HP), int.Parse(selectedEnemy.Dex), selectedEnemy.Description, selectedEnemy.EnemyImage);
-                combat.Add(premadeEnemy);
+
+
+
+                if (selectedEnemy != null)
+                {
+                    //Create a character usinging the data from the Enemy table
+                    Character premadeEnemy = new Character(selectedEnemy.Name, int.Parse(selectedEnemy.AC), int.Parse(selectedEnemy.HP), int.Parse(selectedEnemy.Dex), selectedEnemy.Description, selectedEnemy.EnemyImage);
+                    combat.Add(premadeEnemy);
+                }
+                //Sort the combat list and refresh
+                combat.Sort();
+                combat.Reverse();
+                RefreshScreen();
             }
-            //Sort the combat list and refresh
-            combat.Sort();
-            combat.Reverse();
-            RefreshScreen();
+            catch (Exception)
+            {
+                MessageBox.Show("An error has occured", "Error");
+                throw;
+            }
         }
     }
     #endregion
