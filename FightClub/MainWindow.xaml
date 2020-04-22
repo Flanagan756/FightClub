@@ -88,7 +88,7 @@
                     <RowDefinition Height="10*"/>
                 </Grid.RowDefinitions>
                 <Label Content="Hero" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" FontSize="16"/>
-                <Label Content="Character" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="0" FontSize="16"/>
+                <Label Content="Enemy" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="0" FontSize="16"/>
                 <TextBlock HorizontalAlignment="Left" Margin="10,13,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Height="16" Width="57" Foreground="White" Grid.Row="1"/>
                 <TextBlock HorizontalAlignment="Left" Margin="23,16,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Height="16" Width="57" Foreground="White" Grid.Row="1" Grid.Column="1"/>
                 <TextBlock HorizontalAlignment="Left" Margin="10,76,0,0" TextWrapping="Wrap" Text="HP" VerticalAlignment="Top" Height="16" Width="57" Foreground="White" Grid.Row="1"/>
