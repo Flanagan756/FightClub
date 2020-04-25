@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Threading;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace FightClub
 {
@@ -52,7 +53,8 @@ namespace FightClub
                                  select en;
             lbxPremadeEnemies.ItemsSource = enemyListQuery.ToList();
 
-
+            //Add Premade Heroes to JSON file
+            SaveHeroes();
 
             #region Create Characters
             //Create Enemies
@@ -91,6 +93,27 @@ namespace FightClub
             #endregion
         }
         #region Methods
+        public static List<PreMadeHero> GetHeroes()
+        {
+
+            Entities db = new Entities();
+
+            List<PreMadeHero> heroesJs = new List<PreMadeHero>();
+            heroesJs = db.PreMadeHeroes.ToList();
+
+            return heroesJs;
+        }
+        //Save Hero to File
+        public void SaveHeroes()
+        {
+            string data = JsonConvert.SerializeObject(GetHeroes(), Formatting.Indented);
+
+            using(StreamWriter sw = new StreamWriter("C:/Users/Harry/OneDrive - Institute of Technology Sligo/S2/Heroes.json"))
+            {
+                sw.Write(data);
+                sw.Close();
+            }
+        }
         //Random Number Generator for dice
         public int RandomNumber(int min, int max)
         {
